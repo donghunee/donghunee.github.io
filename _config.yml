@@ -13,12 +13,12 @@ url:                 https://DONGhunee.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             기타치기 좋아하는 개발자.
+tagline:             작은 실패 작은 성공.
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  기타치기 좋아하는 개발자.
+  기타치기를 좋아하는 개발자.&#10;&#10;
   현재 스타트업 CTO로 일하는중. 요리를 좋아합니다.
 # This should be the same author as first entry in `_data/authors.yml`
 author:
