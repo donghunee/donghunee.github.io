@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "[MarkDown]마크다운 문법 정리"
+subtitle:   "마크다운 문법 정리"
+categories: study
+tags: etc
+---
+
+
+마크다운(MarkDown)에 대해 알고 계신가요?
+파일 확장자가 `.md`로 된 파일을 보신적 있으실텐데요. 이는 마크다운 문법으로 작성된 파일입니다.
+
+
