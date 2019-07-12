@@ -50,7 +50,7 @@ google_analytics:    UA-92346434-1
 disqus_shortname:    donghun
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by mozi'
+copyright:           '&copy; 2019. by mozi'
 
 # Format of the permalinks
 permalink:           pretty
