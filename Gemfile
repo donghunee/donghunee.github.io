@@ -6,4 +6,4 @@ gem "jekyll-feed", "~> 0.9"
 gem "jekyll-sitemap", "~> 1.0"
 gem "jekyll-redirect-from", "~> 0.12"
 gem "classifier-reborn"
-gem 'jekyll-admin', group: :jekyll_plugins
+gem 'jekyll-admin'

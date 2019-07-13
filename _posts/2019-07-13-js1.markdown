@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "[Javascript]Object Model"
+subtitle:   "Object Model"
+categories: study
+tags: js
+---
+
+자바스크립트 공부를 본격적으로 기초부터 시작할 예정이다.  
+생활코딩으로 공부 시작!!
+
+
+---
+
+# Object Model
+
+웹브라우저의 구성요소들은 하나하나가 객체화되어 있습니다. 자바스크립트로 이 객체를 제어해서 웹브라우저를 제어할 수 있게 됩니다.
+
+
+자바스크립트를 통해 html을 제어할 수 있음.
+
+
+```
+<span>이것은 객체</span>
+```
+
+다음과 같이 html태그는 하나의 객체로 인식.
+
+---
+
+다음과 같이 html문서의 태그를 배열형태로 불러 올 수 있음.
+
+```javascript
+var span = document.getElementsByTagName('span'); //span은 객체가 들어있는 배열
+
+span[0] = <span>이것은 객체</span> //객체 접근
+```
+
+또한 객체의 style과 같은 특성을 자바스크립트를 통해 변경가능.
+
+---
+
+브라우저는 다음과 같은 구조를 가짐.
+
+![](/assets/img/posts/2019-07-13-20-52-19.png)
+
+출처 [http://learn.javascript.ru/browser-environment](http://learn.javascript.ru/browser-environment)
+
+`window객체`는 다음과 같은 의미를 가짐
+
+1. 전역객체(window를 쓰지 않아도 상관없음.)
+
+2. window,frame과 같은 것을 제어하기 위한 객체
+
+widow가 가지는 property 중 중요한 것은 document이다.
+
+>`DOM(Document Object Model)`는 html안에 있는 `<span>`,`<body>`와 같은 태그들에 접근할 수 있는 기능을 가지고 있음.
+
+>`BOM(Browser Object Model)`은 현재 웹브라우저의 url, 페이지를 reload, alert과 같은 기능을 가지고 있음. 이는 window객체에 포함되어 있음. 결국 BOM은 document의 property에도 속하게 된다.
+
+>`javascript`를 통해 다양한 것을 제어할 수 있음. 브라우저, 서버등을 제어 할 수 있지만 공통적으로 객체,배열, 함수와 같은 것을을 가지고 있다.
+
