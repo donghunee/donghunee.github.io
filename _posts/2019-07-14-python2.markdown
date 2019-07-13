@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "[Python]조건문"
+subtitle:   "조건문"
+categories: study
+tags: python
+---
+
+두개 혹은 그 이상의 것을 비교하여 `true`혹은`false`를 리턴하는 조건문에 대해 알아보겠습니다.
+
+## 비교
+
+* 숫자의 비교
+    * 크다(>)
+    * 크거나 같다,작거나 같다(>=)
+    * 같다(==)
+    * 같지 않다(!=)
+* boolen 연산
+    * and 연산
+    * or 연산
+    * not 연산
+
+```python
+if a and b:
+    print("둘다 참인가")
+
+if 10 > 9:
+    print("10이 9보다 크다")
+```
+
+---
+
+## else와 elif
+
+### else
+* if의 조건이 맞지 않는 경우 실행
+
+```python
+if 10 > 11:
+    print("10이 11보다 크다")
+else:
+    print("10이 11보다 작다")
+```
+
+### elif
+
+* else와 if와 결합한 것, 조건이 맞지 않는 경우 다른 경우 검사.
+
+```python
+if me == 1:
+    result = 'one'  # 조건이 참일 때 실행
+elif me == 2:
+    result = 'two'  # 다른 조건이 참일 때 실행
+else:
+    result = 'thr' # 둘다 아닐때 실행  
+```
