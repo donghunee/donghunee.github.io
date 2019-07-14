@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "[Python]함수"
+subtitle:   "함수"
+categories: study
+tags: python
+---
+
+함수에 대해 알아보겠습니다.
+
+## 함수
+
+```python
+def fun(): # 함수 정의
+    print("이게 함수")
+
+fun() # 함수 호출
+```
+
+다음과 같이 미리 코드를 정의 하고 지속해서 호출을 함으로써, 중복 될 수 있는 부분을 제거해 줍니다.
+
+## 매개변수
+
+또한 매개변수를 통해 인자를 넘겨 줄 수 있습니다.
+
+```python
+def fun(num1,num2): # num1,num2는 매개변수 
+    print(num1+num2)
+
+fun(1,2) # 함수 호출
+```
+
+## return
+
+return을 통해 값을 돌려 줄 수 있습니다.
+
+```python
+def fun(num): # 함수 선언
+    return num
+
+a = fun(1) # 함수 호출
+print(a) # 1 
+```
