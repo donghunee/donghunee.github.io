@@ -210,8 +210,8 @@
 }
 
 .folder:hover {
-  background: #000;
-  opacity: 0.1;
+  background: none;
+  opacity: 0.5;
 }
 
 input[type="checkbox"]{
