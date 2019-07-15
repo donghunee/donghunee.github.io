@@ -1,0 +1,153 @@
+---
+layout: post
+title:  "[API]Django Restframework - 2"
+subtitle:   "django-restframework"
+categories: study
+tags: django
+---
+
+이번엔 restframework의 Serializers를 알아보겠습니다.
+
+# Serializers 생성
+
+Django로 웹 개발을 하던 저에게 ㄴerializers라는 용어는 매우 생소했습니다.
+
+웹 개발시 Django ORM의 Queryset은 django template로 넘겨지면서 html로 랜더링 되어 Response로 보내집니다.
+
+하지만 JSON으로 데이터를 보내야 하는 RESTful API는 기존 방법을 사용할 수 없습니다. 때문에 Queryset을 <span class="un">Nested<span class="un_t">JSON안에 JSON이 있는 구조</span></span>한 JSON으로 mapping해줘야 하는 과정을 거쳐야하는데, 바로 **Serializer**가 이를 수행하게 됩니다.
+
+이제 Serializers를 만들어 보겠습니다.
+
+```python
+# api/serializers.py
+from rest_framework import serializers
+from .models import Post
+from django.contrib.auth.models import User
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email')
+
+class PostSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    class Meta:
+        model = Post
+        fields = (
+            'id',
+            'title',
+            'subtitle',
+            'content',
+            'created_at',
+            'user'
+        )
+        read_only_fields = ('created_at',)
+```
+
+* Meta 클래스를 통해 모델을 적용하고, fields를 통해 사용자에게 입력시키거나 보여주는 요소를 선언합니다.
+
+
+
+---
+
+# View 생성
+
+실직적으로 Queryset을 컨트롤 하고 데이터를 조작하여 Serializer를 통해 매핑시켜주는 View를 작성하겠습니다. 이때 CBV(Class Based View)를 이용하겠습니다.  
+Viewset을 이용해 Model을 컨트롤 하는 CRUD를 1개의 View로 구현시키겠습니다.
+
+```python
+# api/views.py
+from rest_framework import viewsets
+from .serializers import PostSerializer
+from .models import Post
+from rest_framework import permissions
+
+class PostView(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+```
+
+* ``ModelViewSet``은 ``GenericAPIView``를 상속하기 때문에 queryset과 serializer_class를 필수로 요구한다.
+
+* permission_classese는 해당 View접근시 필요한 권한을 설정해 주는 역할을 한다. 위에는 로그인 여부를 확인하고 있다.
+
+---
+
+이제 마지막으로 url 매핑을 시켜줍시다.
+
+```python
+# api/urls.py
+from django.urls import path, include
+from rest_framework.urlpatterns import format_suffix_patterns
+from .views import PostView
+post_list = PostView.as_view({
+    'post': 'create',
+    'get': 'list'
+})
+post_detail = PostView.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+urlpatterns = format_suffix_patterns([
+    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('posts/', post_list, name='post_list'),
+    path('posts/<int:pk>/', post_detail, name='post_detail'),
+])
+```
+
+* **as_view()**를 통해 HTTP method에 따른 기능을 정의해 줄 수 있다.(ex: get -> retrieve)
+
+* ``path('auth/', include('rest_framework.urls', namespace='rest_framework'))``를 통해 로그인 및 로그아웃에 접근 할 수 있도록 만들어준다.
+
+다시 루트 url에 매핑
+
+```python
+# tutorial/urls.py
+from django.contrib import admin
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+]
+```
+
+준비는 끝났습니다!!
+
+# 실행
+
+```
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+```
+
+그리고 ``localhost:8000/api/posts/`` 로 접속하면 다음과 같은 화면을 볼 수 있습니다.
+
+![](/assets/img/posts/2019-07-15-17-06-06.png)
+
+이처럼 따로 조작페이지를 만들지 않아도 rest-framework가 테스트 도구를 만들어 줍니다. 
+
+이제 방금 만든 관리자 계정으로 로그인 해줍니다.
+
+![](/assets/img/posts/2019-07-15-17-07-52.png)
+
+이후 포스팅을 생성한뒤  
+`localhost:8000/api/posts/1`로 접근해봅시다.
+
+![](/assets/img/posts/2019-07-15-17-10-09.png)
+
+다음과 같이 생성된 데이터 확인 및 조작이 가능해집니다.
+
+---
+
+지금까지 rest-framework를 통해 REST API를 개발해 보았습니다.
+

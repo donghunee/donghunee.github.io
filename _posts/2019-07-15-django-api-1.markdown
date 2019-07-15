@@ -1,0 +1,75 @@
+---
+layout: post
+title:  "[API]Django Restframework - 1"
+subtitle:   "django-restframework"
+categories: study
+tags: django
+---
+
+
+이제 RESTful API를 만들어 보겠습니다.
+
+# 프로젝트 생성
+
+```python
+django-admin startproject django_api_test #프로젝트 생성
+
+cd django_api_test #프로젝트 폴더 이동
+
+python manage.py startapp api #앱 추가
+
+pip install djangorestframework #restframework설치
+```
+
+여기까지 완료되었다면
+
+![](/assets/img/posts/2019-07-15-14-53-38.png)
+
+다음과 같이 폴더가 생성됩니다.
+
+```python
+INSTALLED_APPS = [
+    'api',
+    'rest_framework',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+`settings.py` 파일에도 **'api'** 앱과 **'rest_framework'** 를 추가해줍니다.
+
+---
+
+# Models 생성
+
+게시물을 저장할 수 있는 Post모델을 만들어 줍니다.
+
+```python
+# api/models.py
+from django.db import models
+from django.contrib.auth.models import User
+
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    subtitle = models.CharField(max_length=100, blank=True)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return '[{}] {}'.format(self.user.username, self.title)
+```
+
+* django에서 제공하는 사용자 모델인 User 모델을 연결 했습니다.
+
+* **on_delete**는 DB상에서 참조무결성을 유지하기 위해 ForeignKey가 바라보는(여기서는 User) 값이 삭제 될 때 어떻게 처리해 줄지 미리 옵션을 주는 것입니다. 그중 CASCADE는 ForeignKey가 바라보는 값이 삭제될 때 ForeignKeyField를 포함하는 모델 인스턴스도 삭제합니다.   
+
+* **blank**는 유효성과 관련되어 있습니다. (validation-related) ``form.is_valid()``가 호출 될 때 폼 유효성 검사에 사용. 데이터 없음
+
+* **null**은 DB와 관련 되어 있습니다.(database-related) 주어진 데이터베이서 컬럼이 null값을 가질 수 있는 지 정의. 빈 문자열
+ 
+* **auto_now_add**는 **생성일자**. 최초 등록시에만 현재 날짜로 저장되고 수정되지 않습니다.  
+**auto_now**는 **수정일자**. 해당 모델이 save될 때마다 현재 날짜로 갱신됩니다.

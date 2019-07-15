@@ -218,6 +218,49 @@
   font-weight: bold;
 }
 
+.un {
+  border-bottom: 2px solid skyblue;
+  color: skyblue;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+.un .un_t {
+  opacity: 0.9;
+  visibility: hidden;
+  width: 120px;
+  padding: 0 3px 0 3px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  /* padding: 5px 0; */
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.un .un_t::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.un:hover .un_t {
+  visibility: visible;
+}
+
 .folder:hover {
   background: none;
   opacity: 0.5;
