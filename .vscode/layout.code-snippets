@@ -12,10 +12,10 @@
 		"body": [
 			"---",
 			"layout: post",
-			"title:  '$1'",
-			"subtitle:   '$2'",
-			"categories: '$3'",
-			"tags: '$4'",
+			"title:  '[$1]$2'",
+			"subtitle:   '$3'",
+			"categories: '$4'",
+			"tags: '$5'",
 			"---",
 			"$0"
 
