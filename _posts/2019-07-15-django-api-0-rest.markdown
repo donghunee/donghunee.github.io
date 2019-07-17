@@ -3,7 +3,7 @@ layout: post
 title:  "[API]RESTful API"
 subtitle:   "django-restframework"
 categories: study
-tags: django
+tags: rest
 ---
 
 그동안 django를 웹을 만드는데 사용했는데, 이번에 모바일 앱 서버를 구축할 일이 생겨서 찾아보던 중 Django의 restframework를 알게 되었고 공부를 시작해 볼까 한다.

@@ -1,0 +1,14 @@
+{
+	
+	"Print to console": {
+		"scope": "markdown",
+		"prefix": "`p",
+		"body": [
+			"```python",
+			"$1",
+			"```",
+			"$0"
+		],
+		"description": "파이썬 코드블럭"
+	}
+}

@@ -3,7 +3,7 @@ layout: post
 title:  "[API]Django Restframework - 1"
 subtitle:   "django-restframework"
 categories: study
-tags: django
+tags: rest
 ---
 
 

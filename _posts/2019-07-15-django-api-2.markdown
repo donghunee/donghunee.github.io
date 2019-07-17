@@ -3,7 +3,7 @@ layout: post
 title:  "[API]Django Restframework - 2"
 subtitle:   "django-restframework"
 categories: study
-tags: django
+tags: rest
 ---
 
 이번엔 restframework의 Serializers를 알아보겠습니다.

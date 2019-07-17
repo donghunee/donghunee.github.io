@@ -1,0 +1,14 @@
+{
+	
+	"Print to console": {
+		"scope": "markdown",
+		"prefix": "`j",
+		"body": [
+			"```javascript",
+			"$1",
+			"```",
+			"$0"
+		],
+		"description": "자바스크립트 코드블럭"
+	}
+}
