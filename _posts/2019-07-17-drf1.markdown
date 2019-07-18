@@ -8,6 +8,8 @@ tags: 'rest'
 
 RESTframework의 ModelSerializer에 대해서 알아보겠습니다. 해당 게시물은 RESTframework의 공식문서를 참고하였습니다.
 
+---
+
 # ModelSerializer
 
 **ModelSerializer**클래스는 필드가 있는 모델의 **Serializer**를 쉽게 자동으로 만들어 주는 기능을 가지고 있습니다.
