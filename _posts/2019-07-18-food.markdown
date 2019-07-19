@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  '[food]들깨 칼국수'
+title:  '[Food]들깨 칼국수'
 subtitle:   '들깨 칼국수'
 categories: 'review'
 tags: 'food'
