@@ -1,0 +1,95 @@
+---
+layout: post
+title:  '[React]input 다루기 - 2'
+subtitle:   'input 다루기'
+categories: 'study'
+tags: 'react'
+---
+
+이번에는 부모 컴포넌트에 정보를 전달하는 방법에 대해 알아보겠습니다.
+
+---
+
+## 부모 컴포넌트에게 정보 전달하기
+
+부모 컴포넌트에게 state값을 전달하기 위해선, 부모컴포넌트에서 메소드를 만들고, 이 메소드를 자식에게 전달한 다음에 자식 내부에서 호출하면 됩니다.
+
+App에서 handleCreate 메소드를 만들고, 이를 PhoneForm한테 전달합니다. 그리고 PhoneForm쪽에서 버튼을 만들어 submit이 발생하면 props로 받은 함수를 호출하여 App에서 받은 함수를 사용할 수 있도록 합니다.
+
+```javascript
+// file: src/App.js
+import React, { Component } from 'react';
+import PhoneForm from './components/PhoneForm';
+
+class App extends Component {
+  handleCreate = (data) => {
+    console.log(data);
+  }
+  render() {
+    return (
+      <div>
+        <PhoneForm
+          onCreate={this.handleCreate}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+PhoneForm은 다음과 같이 수정해줍니다.
+
+```javascript
+// file: src/components/PhoneForm.js
+import React, { Component } from 'react';
+
+class PhoneForm extends Component {
+  state = {
+    name: '',
+    phone: ''
+  }
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+  handleSubmit = (e) => {
+    // 페이지 리로딩 방지
+    e.preventDefault();
+    // 상태값을 onCreate 를 통하여 부모에게 전달
+    this.props.onCreate(this.state);
+    // 상태 초기화
+    this.setState({
+      name: '',
+      phone: ''
+    })
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          placeholder="이름"
+          value={this.state.name}
+          onChange={this.handleChange}
+          name="name"
+        />
+        <input
+          placeholder="전화번호"
+          value={this.state.phone}
+          onChange={this.handleChange}
+          name="phone"
+        />
+        <button type="submit">등록</button>
+      </form>
+    );
+  }
+}
+
+export default PhoneForm;
+```
+
+handelSubmit함수를 보면, 맨위에 e.preventDefault()라는 함수가 호출 되었는데, 이건 원래 이벤트가 해야 하는 작업을 방지하는 역할을 합니다. 원래는 form에서 submit이 발생하면 페이지를 리로드하게 되는데 이를 방지합니다.
+
+그다음엔 props에서 받은 onCreate함수를 호출하고, 상태값을 초기화합니다.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  '[React]input 다루기'
+title:  '[React]input 다루기 - 1'
 subtitle:   'input 다루기'
 categories: 'study'
 tags: 'react'
