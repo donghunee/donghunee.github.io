@@ -1,0 +1,58 @@
+---
+layout: post
+title:  '[Node.js]NPM에 대하여'
+subtitle:   'NPM에 대하여'
+categories: 'study'
+tags: 'node'
+---
+
+NPM은 Node Package Manager의 약자이며 2가지의 주요한 기능을 가지고 있습니다.
+
+* NPMSearch에서 탐색 가능한 Node.js 패키지/모듈 저장소
+
+* Node.js 패키지 설치 및 버전 / 호환성 관리를 할 수 있는 커맨드라인 유틸리티
+
+
+> NPM을 사용하여 모듈 설치하기
+
+``npm install <모듈이름>``
+
+예를 들면
+
+``npm install express``
+
+이런식으로 사용가능합니다.
+
+---
+
+> 글로벌 설치와 로컬 설치
+
+* **로컬모드** : 패키지를 명령어를 실행한 디렉토리 안에 있는 node_modeules에 설치하는 것, 기본적인 설치
+
+* **글로벌 설치** : 시스템 디렉토리에 설치하는 것
+
+글로벌 설치는 현재경로가 아닌 시스템에 저장합니다. 글로벌 모드로 설치했을때는, node 어플리케이션에서 바로 require할 수 없습니다. 다음처럼 npm link 명령어를 입력하고 나면 해당 모듈을 불러올 수 있습니다.
+
+```javascript
+npm install -g express
+cd [local path]/project
+npm link express
+```
+
+> package.json
+
+package.json은 노드 어플리케이션 / 모듈의 경로에 위치해 있으며 패키지의 속성을 정의합니다.
+
+> 모듈 제거
+
+``npm uninstall express``
+
+> 모듈 업데이트
+
+``npm update express``
+
+> 모듈 검색
+
+``npm search express``
+
+
