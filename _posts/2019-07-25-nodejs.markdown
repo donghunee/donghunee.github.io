@@ -1,1 +1,14 @@
+---
+layout: post
+title:  '[Node.js]JWT에 대해서'
+subtitle:   'JWT에 대해서'
+categories: 'study'
+tags: 'node'
+---
+
+로그인을 하는 방식은 크게 session을 사용하는 방법과 token을 사용하는 방법이 있습니다. session을 사용하는 방식은 일반적으로 가장 자주 볼 수 있는 방법입니다. 하지만 session 방식은 SPA(Single Page Application)에도 잘 어울리지 않고 RESTful 방식에 적합하지 않습니다. session 자체가 웹을 가정하고 만들었기 때문에 여러 플랫폼에서 로그인 하기에는 불편한 점이 많습니다.
+
+이를 해결하지 위해 JWT(JSON Web Token)이라는 방식을 사용해 볼까 합니다.
+
+# JWT는 무엇인가?
 
