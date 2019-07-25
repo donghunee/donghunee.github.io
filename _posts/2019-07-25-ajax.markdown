@@ -11,7 +11,7 @@ Ajax통신을 할 때 ApiKey나 Content-type등을 헤더 부분에 추가해야
 만약 header부분에 Content-type과 JWT을 추가한다고 가정해보자 그럼 다음과 같이 코드를 작성할 수 있다.
 
 ```javascript
-function getEmail() {
+function before() {
     var token = localStorage.getItem("token");
     $.ajax({
         type: "GET",
@@ -22,7 +22,6 @@ function getEmail() {
         },
         success: function (res) {
             console.log(res);
-            document.getElementById('getEmail').innerHTML = res.data.email;
         }
     });
 }
