@@ -1,0 +1,32 @@
+---
+layout: post
+title:  '[Server]URL과 URI의 차이'
+subtitle:   'URL과 URI의 차이'
+categories: 'study'
+tags: 'etc'
+---
+
+그동안 서버 개발을 할때 URL과 URI라는 용어를 혼재해서 사용했었다. 두 단어가 어떠한 차이점이 있는지 잘 몰랐기 때문인데, 이번 기회에 정리해두고자 한다.
+
+# URL
+
+URL(Uniform Resource Location)은 인터넷상의 ``자원의 위치``를 나타내는 개념이다.
+
+예를들어
+> http://misemozi.me/index.html
+
+이와 같은 형식은 index.html이라하는 인터넷상의 자원의 위치를 의미하는 것이다.  
+그 위치에 정확히 해당 파일이 존재한다.
+
+# URI
+
+URI(Uniform Resource Location)은 인터넷상의 자원을 ``식별하기 위한 문자열의 구성``이라 해석할 수 있다.
+
+예를 들면
+> http://misemozi.me/index?id=3232
+
+이러한 형식은 query string에 따라 여러가지 결과를 가질 수 있고, 해당 위치에 파일이 위치할 수도 아닐수도 있는 것이다.
+
+또한 URI는 URL과 URN을 포함하고 있다.
+
+즉 URL이라면 URL인 것이다.
