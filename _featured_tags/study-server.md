@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: react
+title: server
 slug: server
 category: study
 menu: false

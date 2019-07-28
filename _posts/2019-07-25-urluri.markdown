@@ -13,6 +13,7 @@ tags: 'server'
 URL(Uniform Resource Location)은 인터넷상의 ``자원의 위치``를 나타내는 개념이다.
 
 예를들어
+
 > http://misemozi.me/index.html
 
 이와 같은 형식은 index.html이라하는 인터넷상의 자원의 위치를 의미하는 것이다.  
@@ -23,6 +24,7 @@ URL(Uniform Resource Location)은 인터넷상의 ``자원의 위치``를 나타
 URI(Uniform Resource Location)은 인터넷상의 자원을 ``식별하기 위한 문자열의 구성``이라 해석할 수 있다.
 
 예를 들면
+
 > http://misemozi.me/index?id=3232
 
 이러한 형식은 query string에 따라 여러가지 결과를 가질 수 있고, 해당 위치에 파일이 위치할 수도 아닐수도 있는 것이다.
