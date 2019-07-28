@@ -3,7 +3,7 @@ layout: post
 title:  '[Server]Scale-Out과 Scale-Up'
 subtitle:   'Scale-Out과 Scale-Up'
 categories: 'study'
-tags: 'etc'
+tags: 'server'
 ---
 
 서버를 운영 시, 갑작스럽게 사용자가 증가하거나, 사업의 확장 등으로 서버의 용량과 성능이 필요할 때가 있습니다. 이런 경우 ``Scale-Out``과 ``Scale-UP``, 두가지 방법으로 시스템을 확장할 수 있습니다.

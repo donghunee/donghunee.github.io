@@ -3,7 +3,7 @@ layout: post
 title:  '[Server]URL과 URI의 차이'
 subtitle:   'URL과 URI의 차이'
 categories: 'study'
-tags: 'etc'
+tags: 'server'
 ---
 
 그동안 서버 개발을 할때 URL과 URI라는 용어를 혼재해서 사용했었다. 두 단어가 어떠한 차이점이 있는지 잘 몰랐기 때문인데, 이번 기회에 정리해두고자 한다.
