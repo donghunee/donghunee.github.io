@@ -48,7 +48,7 @@ tags: js
 
 * let, const 키워드 추가
 
-    * 기존의 변수는 함수 scope를 가진 var 키워드를 이용하였습니다. 때문에 block scope를 가진 let과 const 키워드를 추가했습니다.
+    *  기존의 변수는 함수 scope를 가진 var 키워드를 이용하였습니다. 때문에 block scope를 가진 let과 const 키워드를 추가했습니다.
 
 * arrow 문법 지원
 
