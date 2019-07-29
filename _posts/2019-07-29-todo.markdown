@@ -1,0 +1,361 @@
+---
+layout: post
+title:  '[React-Native]To-Do-App 만들기(1)'
+subtitle:   'To-Do-App 만들기(1)'
+categories: 'study'
+tags: 'react_native'
+---
+
+To-Do-App을 만들어 보겠습니다. 차근차근 하나씩 포스팅 해볼 예정입니다.
+
+---
+
+## Header 부품 만들기
+
+![](/assets/img/posts/2019-07-29-10-53-17.png)
+
+우선 프로젝트 하위 폴더에 app 폴더를 만들고, 그 밑에 components 폴더를 생성합니다.  
+그리고 Header.js 파일을 생성해줍니다. Header는 하나의 component로 작동합니다.
+
+```javascript
+// app/components/Header.js
+
+import React from 'react'
+import { View, Text } from 'react-native'
+
+const Header = () => (
+  <View>
+    <Text>My To-Do App</Text>
+  </View>
+)
+
+
+export default Header
+```
+
+Header.js를 작성해줍니다.
+
+Header라는 변수에 함수를 집어넣습니다. 이것이 바로 Functional한 방식의 컴포넌트 방식입니다. arrow function을 이용해 컴포넌트를 Header 변수에 집어넣습니다.  
+
+작성한 Header 부품을 App.js에 조립해줍니다.
+
+```javascript
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import Header from './app/components/Header'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Header></Header>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+		flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+})
+```
+
+파일 경로를 입력하고 Header를 가져옵니다.
+
+결과는 다음과 같습니다.
+
+![](/assets/img/posts/2019-07-29-11-00-18.png)
+
+이제 Header를 꾸며 봅시다.
+
+## StyleSheet 
+
+StyleSheet 컴포넌트는 우리가 만든 부품을 꾸며주는 CSS와 같은 역할을 합니다. **StyleSheet.create**는 css파일을 만들어 주는 것과 같은 기능을 합니다.
+
+부품에게 style을 부여해 보겠습니다.
+
+```javascript
+import React from 'react'
+import {Text,View,StyleSheet} from 'react-native'
+
+const Header = () => {
+    return (
+        <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>My To-Do App</Text>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    marginTop:70,
+    marginBottom:40
+  },
+  headerText: {
+    fontSize: 26,
+    fontWeight: '600',
+    color:'#3f4e66'
+  }
+})
+
+export default Header
+```
+
+적용 결과는 다음과 같습니다.
+
+![](/assets/img/posts/2019-07-29-11-05-17.png)
+
+이제 Header를 Header 답게 꾸며 주겠습니다.
+<br>
+
+## Flexbox
+
+flexbox를 이용하면 화면의 layout을 구성할 때 매우 편리하게 작업할 수 있습니다.
+
+App.js를 살펴보겠습니다.
+
+```javascript
+<View style={styles.container}>
+	<Header></Header>
+</View>
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
+```
+
+Header를 감싸고 있는 View에 스타일이 적용되어있는 것을 볼 수 있습니다.  
+여기서 ``flex:1``는 View가 화면 전체를 감싸주는 역할을 하고 있습니다.  
+``alignItems:'center'``는 자식 컴포넌트들을 가로 기준으로 가운데 정렬을 해줍니다. 
+``justifyContent:'center'``는 자식 컴포넌트들을 세로 기준으로 가운데 정렬을 해줍니다.
+
+이제 꾸며 보겠습니다.
+
+```javascript
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import Header from './app/components/Header'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centered}>
+            <Header/>
+        </View>
+      </View>
+                
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  centered: {
+    alignItems: 'center',
+  },
+})
+```
+
+container의 중앙정렬 요소를 없앤 뒤, Header를 감싸는 View를 생성해 가운데 중앙정렬을 합니다.
+
+![](/assets/img/posts/2019-07-29-12-38-10.png)
+
+Header가 완성되었습니다.
+
+<br>
+
+## Subtitle 부품 만들기
+
+이제 소제목에 해당하는 Subtitle 부품을 만들어보겠습니다. Subtitle.js을 생성합니다.
+
+```javascript
+// app/components/SubTitle.js
+
+import React from "react"
+import {View,Text,StyleSheet} from "react-native"
+
+const SubTitle = () => (
+    <View>
+        <Text style={styles.subTitleText}>To-Do 입력</Text>
+    </View>
+)
+
+styles = StyleSheet.create({
+    subTitleText: {
+        color: "#000",
+        fontSize: 18,
+        fontWeight: "600"
+    }
+})
+
+export default SubTitle
+```
+
+이제 부품을 App.js에 조립해 줍니다.
+
+```javascript
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Header from './app/components/Header'
+import SubTitle from './app/components/SubTitle'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centered}>
+            <Header/>
+        </View>
+        <View style={styles.inputContainer}>
+          <SubTitle/>
+        </View>
+      </View>
+                
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  centered: {
+    alignItems: 'center',
+  },
+  inputContainer: {
+    marginLeft:20
+  }
+});
+```
+SubTitle 부품을 import 한 뒤 SubTitle을 넣어줍니다.
+
+![](/assets/img/posts/2019-07-29-12-45-25.png)
+
+만들어졌습니다.
+
+이제 사용자에게 입력을 받을 수 있게 입력창을 넣어 보겠습니다.
+
+<br>
+
+## 입력창 부품 만들기
+
+입력창 부품을 만들기 위해서 app/components/Input.js 파일을 생성합니다.
+
+```javascript
+// app/components/Input.js
+
+import React from "react";
+import {TextInput,StyleSheet} from 'react-native';
+
+const Input = () => (
+    <TextInput
+        style={styles.input}
+        placeholder={"오늘 어떤 일을 하실건가요?"}
+        maxLength={30}
+        returnKeyType="done"/>
+);
+
+const styles = StyleSheet.create({
+    input: {
+        fontSize: 25,
+        paddingTop:15,
+    }
+})
+
+export default Input;
+```
+
+TextInput을 사용하기 위해 넣어줘야 하는 속성들이 있습니다.  
+``placeholder``는 입력창에 입력하기 전에 띄우는 문자입니다.  
+``maxLength``는 입력창에 넣을 수 있는 텍스트의 최대 길이입니다.  
+``returnKeyType``은 완료 버튼에 출력할 글자를 말합니다.  
+
+속성을 모두 입력했다면 export 해주고 App.js에서 조립해줍니다.
+
+```javascript
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import Header from './app/components/Header'
+import SubTitle from './app/components/SubTitle'
+import Input from './app/components/Input'
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centered}>
+            <Header/>
+        </View>
+        <View style={styles.inputContainer}>
+          <SubTitle/>
+          <Input/>
+        </View>
+      </View>
+                
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  centered: {
+    alignItems: 'center',
+  },
+  inputContainer: {
+    marginLeft:20
+  }
+})
+```
+
+결과입니다.
+
+![](/assets/img/posts/2019-07-29-13-03-17.png)
+
+<br>
+
+## Props(Subtitle 부품 만들기 2)
+
+방금 우리는 소제목을 만들었습니다. 이번엔 ``To-DO List`` 소제목을 만들어야 하는데, 소제목이 2개이니까 파일을 한개 더 생성하기 보단 **React-Native 컴포넌트를 재사용할 수 있게 하기 위해 ``Props`` 라는 기능을 활용하는게 좋습니다.**  
+
+App.js 기준으로 상위 컴포넌트는 App이고 자식 컴포넌트는 Subtitle입니다. 그러니 App에서 SubTitle 부품을 조립할 때 ``Props``, 즉 속성을 설정해서 재사용 할 수 있게 만들어주는 역할을 합니다.
+
+구현해 보겠습니다.
+
+```javascript
+// App.js
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centered}>
+            <Header/>
+        </View>
+        <View style={styles.inputContainer}>
+          <SubTitle title="To-Do 입력"/>
+          <Input/>
+        </View>
+        <View style={styles.todoContainer}>
+          <SubTitle title="To-Do List"/>
+        </View>
+      </View>
+                
+    )
+  }
+}
+```
+
+
