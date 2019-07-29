@@ -358,4 +358,9 @@ export default class App extends React.Component {
 }
 ```
 
+화살표 함수안에 방금 App.js에서 넘어온 props, ``{title}`` 값을 적어 받아옵니다. 그리고 받아온 ``{title}``값을 넣어 줍니다.
+
+실행 결과는 다음과 같습니다.
+
+![](/assets/img/posts/2019-07-29-13-11-35.png)
 
