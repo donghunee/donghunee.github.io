@@ -1,0 +1,82 @@
+---
+layout: post
+title:  '[React-Native]To-Do-App 삭제하기'
+subtitle:   'To-Do-App 삭제하기'
+categories: 'study'
+tags: 'react_native'
+---
+
+이번엔 등록한 일을 삭제해보겠습니다.  
+
+---
+
+## _makeTodoItem 수정하기
+
+_makeTodoItem 함수 안의 TodoItem을 수정해봅시다.
+
+```javascript
+//App.js
+_makeTodoItem = ({ item, index }) => {
+    return (
+      <TodoItem
+        text={item.title}
+        isComplete={item.isComplete}
+        changeComplete={() => {
+          const newTodo = [...this.state.todos]
+          newTodo[index].isComplete = !newTodo[index].isComplete
+          this.setState({todos:newTodo})
+        }}
+        deleteItem={() => {
+          const newTodo = [...this.state.todos]
+          newTodo.splice(index,1)
+          this.setState({todos:newTodo})
+        }} />
+    )
+  }
+```
+
+``TodoItem`` 컴포넌트에 ``deleteItem`` 이라는 속성이 추가되었고, 익명 함수를 속성 값으로 주고 있습니다. 이는 X 버튼을 클릭했을 때 실행될 함수입니다.
+
+``deleteItem`` 함수를 자세히 살펴 보겠습니다.
+
+* **const newTodo = [...this.state.todos]**  
+state에 넣어둔 todos를 가져와 newTodo에 집어넣어줍니다.
+
+* **newTodo.splice(index,1)**  
+이는 newTodo배열의 index번째 요소로부터 1개를 삭제한다는 코드입니다.  
+자바스크립트의 splice메서드를 사용할 때는 **배열.splice(시작할 인덱스,삭제하고 싶은 요소 갯수)** 형식을 따릅니다.
+
+* **this.setState({todos:newTodo})**  
+요소를 삭제한 newTodo배열을 state의 todos값으로 저장합니다.
+
+<br>
+
+## Todo.js 수정하기
+
+```javascript
+const TodoItem= ({text,isComplete,changeComplete,deleteItem}) => (
+    <View style={styles.todoContainer}>
+        <View>
+            <View style={styles.objContainer}>
+                <View style={styles.textContainer}>
+                    <TouchableOpacity
+                        onPress={changeComplete}>  
+                        <AntDesign name={isComplete?"checksquare":"checksquareo"} size={30} style={styles.check}/>
+                    </TouchableOpacity>
+                    <Text style={styles.todos}>{text}</Text>
+                </View>
+                <TouchableOpacity
+												onPress={deleteItem}>  
+                    <AntDesign name="close" size={20}/>
+                </TouchableOpacity>
+            </View>
+        </View>
+    </View>
+)
+```
+
+props값 중 deleteItem을 받아와 설정해줍니다.
+
+결과는 다음과 같습니다.
+
+![](/assets/img/posts/AC_3.gif)
