@@ -1,0 +1,76 @@
+---
+layout: post
+title:  '[React-Native]To-Do-App 완료하기'
+subtitle:   'To-Do-App 완료하기'
+categories: 'study'
+tags: 'react_native'
+---
+
+이제 등록한 할 일을 완료하는 기능을 추가해보겠습니다.
+
+---
+
+## _makeTodoItem 수정하기
+
+할 일을 완료하는 기능은 TodoItem 컴포넌트를 클릭할 때 실행되어야 하므로, TodoItem 컴포넌트를 건드려야 합니다.
+
+이는 _makeTodoItem 안에 있으므로 수정을 해보겠습니다.
+
+```javascript
+//App.js
+_makeTodoItem = ({ item, index }) => {
+    return (
+      <TodoItem
+        text={item.title}
+        isComplete={item.isComplete}
+        changeComplete={() => {
+          const newTodo = [...this.state.todos];
+          newTodo[index].isComplete = !newTodo[index].isComplete;
+          this.setState({todos:newTodo});
+        }} />
+    )
+  }
+```
+
+``TodoItem`` 컴포넌트에 ``changeComplete``라는 속성을 추가하고, 익명함수를 속성값으로 주고 있습니다. 이 함수가 체크아이콘을 터치했을때 실행될 함수코드입니다.
+
+``ChangeComlete``함수를 자세히 살펴봅시다.
+
+* const newTodo = [...this.state.todos]  
+state에 넣어둔 todos를 가져와 newTodo에 넣어주고 있습니다. ``...``연산자는 뒤에 오는 요소를 분해해서 펼쳐주는 역할을 합니다.
+
+* newTodo[index].isComplete = !newTodo[index].isComplete  
+방금 만든 ``newTodo``배열에서 ``index``번째 요소의 ``isComplete``값을 ``!``연산자를 통해 반대로 만들어주고 있습니다.  
+``index``값은 _makeTodoItem 함수를 만들 때 받아온 ``index`` 값을 의미합니다.
+
+* this.setState({todos:newTodo})  
+위에서 ``isComplete``값을 수정한 newTodo를 state의 todos값으로 저장합니다.
+
+이제 체크 아이콘을 클릭했을때 해당 함수가 실행되도록 만들어 보겠습니다.
+
+<br>
+
+## Todo.js 수정하기
+
+```javascript
+const TodoItem= ({text,isComplete,changeComplete}) => (
+    <View style={styles.todoContainer}>
+        <View>
+            <View style={styles.objContainer}>
+                <View style={styles.textContainer}>
+                    <TouchableOpacity
+                        onPress={changeComplete}>  
+                        <AntDesign name={isComplete?"checksquare":"checksquareo"} size={30} style={styles.check}/>
+                    </TouchableOpacity>
+                    <Text style={styles.todos}>{text}</Text>
+                </View>
+                <TouchableOpacity>  
+                    <AntDesign name="close" size={20}/>
+                </TouchableOpacity>
+            </View>
+        </View>
+    </View>
+)
+```
+
+``TouchableOpacity`` 컴포넌트에는 ``onPress`` 속성이 존재합니다. 이는 눌렀을 때 실행되는 코드를 속성값으로 주면 되니 앞서 작성했던 props 중 changeComplete를 받아와 설정해주면 됩니다.
