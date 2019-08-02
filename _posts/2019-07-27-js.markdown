@@ -2,8 +2,8 @@
 layout: post
 title:  '[JavaScript]ECMA Script, ES 정리와 버전별 특징'
 subtitle:   'ECMA Script, ES 정리와 버전별 특징'
-categories: study
-tags: js
+categories: 'study'
+tags: 'js'
 ---
 
 자바스크립트를 공부하던 중에 ECMA Script, ES6 같은 용어들을 보곤 했는데 정확히는 몰랐던 상태였다. 이번기회에 알아보고자 한다.

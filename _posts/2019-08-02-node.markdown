@@ -1,0 +1,116 @@
+---
+layout: post
+title:  '[Node.js]express AWS S3에 업로드 하기'
+subtitle:   'express AWS S3에 업로드 하기'
+categories: 'study'
+tags: 'node'
+---
+
+express로 이미지 파일을 AWS S3에 업로드 해보겠습니다. 
+
+---
+
+## AWS S3
+
+Simple Srotage Service의 약자로 파일 서버의 역할을 하는 서비스입니다. 일반적인 파일 서버와 달리 트래픽에 대한 걱정을 할 필요 없으며, 파일에 대한 접근 권한을 지정할 수 있다.
+
+이제 시작해보겠습니다.
+<br>
+
+## S3 Upload
+
+```javascript
+npm install --save aws-sdk //S3 업로드를 위한 모듈
+npm install --save multer // 업로드를 위한 모듈
+npm install --save multer-S3 // 업로드를 위한 모듈
+npm install --save path
+```
+
+``aws-sdk``를 설치하겠습니다.
+
+그 후 config 폴더를 만들어 준 후 awsconfig.json 파일을 생성해줍니다.
+
+![](/assets/img/posts/2019-08-02-11-26-07.png)
+
+파일 안에는 다음과 같이 AWS 계정의 정보를 입력해줍니다.
+
+```javascript
+// awsconfig.json
+
+{
+    "accessKeyId": "엑세스 키",
+    "secretAccessKey": "시크릿 엑세스 키",
+    "region": "ap-northeast-2" //서울 지역
+}
+```
+
+그리고 라우터 파일에 다음과 같이 작성해줍니다.
+
+```javascript
+//upload.js
+
+const express = require('express');
+const router = express.Router();
+const path = require("path");
+
+let AWS = require("aws-sdk");
+AWS.config.loadFromPath(__dirname + "/../config/awsconfig.json"); // 인증
+let s3 = new AWS.S3();
+
+let multer = require("multer");
+let multerS3 = require('multer-s3');
+let upload = multer({
+
+    storage: multerS3({
+        s3: s3,
+        bucket: "modak-storage",
+        key: function (req, file, cb) {
+             let extension = path.extname(file.originalname);
+             cb(null, Date.now().toString() + extension)
+        },
+        acl: 'public-read-write',
+    })
+
+})
+
+
+router.post('/upload', upload.single("imgFile"), function(req, res, next){
+    console.log(req.file)
+})
+
+module.exports = router
+
+```
+
+이렇게 작성하고 서버를 돌려보겠습니다.
+
+그리고 http://localhost:5000/upload 해당 링크로 ``multipart/form-data`` 형식으로 POST 요청을 하면  
+
+
+```json
+{
+    "fieldname": "imgFile",
+    "originalname": "pp.png",
+    "encoding": "7bit",
+    "mimetype": "image/png",
+    "size": 115351,
+    "bucket": "modak-storage",
+    "key": "1564713940383.png",
+    "acl": "public-read-write",
+    "contentType": "application/octet-stream",
+    "contentDisposition": null,
+    "storageClass": "STANDARD",
+    "serverSideEncryption": null,
+    "metadata": null,
+    "location": "https://moda.s3.ap-northeast-2.amazonaws.com/1564713940383.png",
+    "etag": "\"1a432a8b8137e8fc9e15d62e2bcd0b72\""
+}
+```
+
+다음과 같이 응답을 받을 수 있고
+
+S3에 접속하면 
+
+![](/assets/img/posts/2019-08-02-11-48-24.png)
+
+저장된 것을 확인 하실 수 있습니다.
