@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  '[Food]'
-subtitle:   ''
-categories: ''
-tags: ''
+title:  '[Food]우렁된장과 청국장'
+subtitle:   '우렁된장과 청국장'
+categories: 'review'
+tags: 'food'
 ---
 
 오늘은 간만에 점심으로 밥을 먹기로 했다. 요즘 면이 땡겨서 한동안 면 종류만 먹었었는데, 오랜만에 밥다운 밥을 먹으러 갔다.
