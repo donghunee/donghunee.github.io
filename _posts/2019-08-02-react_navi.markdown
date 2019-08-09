@@ -56,3 +56,4 @@ export default createAppContainer(AppNavigator);
 실행을 해보면 다음과 같이 출력됩니다.
 
 ![](/assets/img/posts/2019-08-02-16-43-42.png)
+
