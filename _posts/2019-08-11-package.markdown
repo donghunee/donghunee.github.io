@@ -1,0 +1,53 @@
+---
+layout: post
+title:  '[Lambda]AWS Lambda 패키징'
+subtitle:   'AWS Lambda 패키징'
+categories: 'study'
+tags: 'etc'
+---
+
+이번에 AWS Lambda를 이용하면서 삽질한 내용이 있는데 바로 ``패키징``이다.  
+Lambda에서 python 패키지를 사용하려면 패키징, 즉 zip파일로 올려야 하는데 이게 자료가 명확치 않아서 꽤나 시간을 썻던것 같다. 
+
+문제가 된 부분과 해결 방안을 적어놓으려 한다.
+
+---
+
+# 1. OS 문제
+
+나는 현재 window를 OS로 사용하고 있는데, 이게 문제가 되었었다. Lambda는 linux위에서 돌아가기 때문인지 윈도우 환경에서 압축을 하니까 돌아가지 않는 문제가 생겼었다...
+
+이는 윈도우에서 우분투 앱을 다운받고, Linux환경에서 압축을 진행하니 해결되었다.
+
+<br>
+
+# 2. 경로 문제
+
+2번 문제가 가장 해결하는데 힘들었다. 패키징을 할때 패키지만 root 경로에 모아서 압축하면 되는 줄 알았지만 그게 아니라 python/lib/python3.6/site-packages 안에 모은 다음 경로를 포함해서 압축을 진행해야 비로소 정상 작동을 하는것이였다.
+
+방법은 다음과 같다.
+
+우선 폴더를 만들어 준다
+
+```
+mkdir -p build/python/lib/python3.6/site-packages  
+cd build
+```
+
+그후 site-packages에 사용하는 패키지를 install 해준다.
+
+```python
+pip install <사용할 패키지> -t python/lib/python3.6/site-packages/
+```
+
+마지막으로 zip파일을 생성해주면 된다.
+
+```
+zip -r package.zip .
+```
+
+이렇게 하고 만들어진 zip파일을 lambda나 s3에 올려 사용하면 된다.
+
+결과적으로 Lambda를 사용하지는 못했지만 나중에 사용하기 위해 글을 남긴다.
+
+
