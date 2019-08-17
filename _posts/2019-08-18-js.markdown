@@ -1,0 +1,28 @@
+---
+layout: post
+title:  '[Javascript]자바스크립트 String붙이기'
+subtitle:   '자바스크립트 String붙이기'
+categories: 'study'
+tags: 'js'
+---
+
+자바스크립트에서 String에 String을 붙이는 방법을 알아보겠습니다.
+
+---
+
+## 1. concat활용
+
+```javascript
+var str = ""
+str.concat("go")
+console.log(str) //go
+```
+
+## 2. + 활용
+
+```javascript
+var str = ""
+str += "g"
+console.log(str) //g
+```
+
