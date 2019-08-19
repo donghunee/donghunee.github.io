@@ -1,0 +1,132 @@
+---
+layout: post
+title:  '[Nginx]ec2에서 flask, nginx 설정하기'
+subtitle:   'ec2에서 flask, nginx 설정하기'
+categories: 'study'
+tags: 'etc'
+---
+
+aws ec2에서 웹서버를 구축하는중에 nginx를 사용해볼 기회가 생겨서 포스팅을 해보겠습니다.
+
+설정환경
+* AWS EC2 instance
+* ubuntu 18.04 LTS
+* nginx 1.14.2
+* python 3.6.7
+
+---
+
+# flask app 만들기
+
+ubuntu 경로에 app.py를 만들어주겠습니다.
+
+```python
+# /home/ubuntu/app.py
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello world"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
+```
+
+<br>
+
+# nginx 설치
+
+다음과 같은 커맨드로 설치해줍니다.
+
+```
+sudo apt-get update
+sudo apt-get install nginx
+```
+
+그 다음 환경 설정을 해주겠습니다.
+
+```
+cd /etc/nginx/sites-available
+sudo touch myapp
+```
+
+myapp의 설정파일은 다음과 같이 입력합니다.
+
+```
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ubuntu/
+    }
+}
+```
+
+``uwsgi_pass``는 해당경로로 포워딩 해준다는 의미입니다.
+
+그 다음 Symbolic link를 설정하여 사이트를 활성화합니다.
+
+```
+sudo ln -s /etc/nginx/sites-available/myflask /etc/nginx/sites-enabled
+```
+
+default는 삭제해줍니다.
+
+```
+sudo rm /etc/nginx/sites-enabled/default
+```
+
+# uWSGI 설치
+
+uwsgi를 설치해줍니다.
+
+```python
+pip install uwsgi
+```
+
+그 후 uwsgi를 사용하여 flask앱을 실행합니다.
+
+```
+uwsgi --socket 0.0.0.0:5000 --protocol=http -w main:app
+```
+
+정상적으로 설정되었다면 ip:5000 포트로 접근시 잘 작동합니다.
+
+이제 위의 설정을 .ini 파일을 만들어 쉽게 구동해보도록 만들겠습니다.
+
+``myapp.ini`` 파일을 만들고 config 값들을 입력해줍니다.
+
+```
+[uwsgi]
+module = app:app
+master = true
+processes = 5
+chdir = /home/ubuntu/
+socket = /home/ubuntu/
+chmod-socket = 666
+vacuum = true
+daemonize = /tem/uwsgi.log
+die-on-term = true
+```
+
+``module``은 app.py의 app을 실행한다는 이야기 입니다.
+
+그 후 다음 명령어를 입력해줍니다.
+
+```
+uwsgi --ini myapp.ini
+```
+
+입력 후 해당 주소로 접근한다면 정상적으로 작동되는 것을 확인할 수 있습니다.
+
+
+
+
+
+
+
+
