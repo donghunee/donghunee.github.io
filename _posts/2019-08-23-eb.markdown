@@ -1,0 +1,18 @@
+---
+layout: post
+title:  '[Elastic-Beanstalk].ebignore 사용'
+subtitle:   '.ebignore 사용'
+categories: 'study'
+tags: 'etc'
+---
+
+서버 호스팅을 위해 aws의 elastic beanstalk을 사용할 때가 종종 있는데  
+eb에 deploy를 할때까진 상태가 괜찮은데 막상 서버를 실행하면 오류가 뜨는 경우가 있다.
+
+내 경우엔 awsconfig와 같이 사용자 정보를 담아 놓은 파일을 인식하지 못하는 경우가 대부분이였다.
+
+.gitignore을 통해 제외한 후에 deploy를 하던 것이 화근이였는데 add가 되지 않으니 애초에 파일이 올라가지 않았던 것이다.
+
+aws 가이드를 읽어 보니 ``.ebignore``라는 해결 방안이 있길래 적어놓는다. gitignore 대신에 .ebignore를 사용하면 된다고 한다.
+
+출처 : https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/eb-cli3-configuration.html#eb-cli3-ebignore
