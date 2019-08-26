@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  '[Elastic-Beanstalk].ebignore 사용'
-subtitle:   '.ebignore 사용'
+subtitle: '.ebignore 사용'
 categories: 'study'
 tags: 'etc'
 ---
