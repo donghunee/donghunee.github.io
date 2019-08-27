@@ -1,0 +1,24 @@
+---
+layout: post
+title:  '[ML]Simple Liner Regression'
+subtitle:   'Simple Liner Regression'
+categories: 'study'
+tags: 'etc'
+---
+
+# Regression
+
+- 후퇴,퇴보,돌아간다.
+
+- Regression toward the mean(전체의 평균으로 돌아간다.) -> 전체의 데이터가 평균으로 돌아가는 패턴을 가지고 있다.
+
+- 데이터를 잘 대변하는 직선의 방정식을 찾는것. 
+![](/assets/img/posts/2019-08-27-12-53-15.png)
+
+## Hypothesis(가설)
+
+H(x) = Wx+b
+
+## 비용 
+H(x)-y 총합이 작을 수록 가장 좋은 가설.
+
