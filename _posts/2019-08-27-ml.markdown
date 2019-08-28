@@ -6,6 +6,8 @@ categories: 'study'
 tags: 'etc'
 ---
 
+강의를 듣고 정리한 내용입니다.
+
 # Regression
 
 - 후퇴,퇴보,돌아간다.
