@@ -1,0 +1,26 @@
+---
+layout: post
+title:  '[Python]csv파일 저장하기'
+subtitle:   'csv파일 저장하기'
+categories: 'study'
+tags: 'python'
+---
+
+데이터를 csv파일로 저장하는 방법에대해 알아보겠습니다.
+
+---
+
+```python
+import csv
+
+data = [[1,2,3,4],[5,6,7,8]]
+
+csvfile = open("./output.csv","w",newline="")
+
+csvwriter = csv.writer(csvfile)
+for row in data:
+    csvwriter.writerow(row)
+
+csvfile.close()
+```
+
