@@ -51,9 +51,11 @@ order: 10
 
 - [바톤터치](https://warm-eyrie-25829.herokuapp.com/) - 웹 퍼블리싱
 
-
 - [바톤터치](https://giging.tistory.com/5?category=323741) - 헬스장 양도관련 서비스 기획 및 제작
+
 ## 공모전 활동
+
+- 2019 Venture Start-Up 경진대회 은상
 
 - 2018 장영실 발명 경진대회 본선 진출
 
