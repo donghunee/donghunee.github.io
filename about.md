@@ -35,7 +35,7 @@ order: 10
 
 ## 사이드프로젝트
 
-- [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 앱
+- [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 어플리케이션
 
 - [미세모지](https://misemozi.me) - 실내 공기청정기 지도 서비스 제작
 
