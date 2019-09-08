@@ -1,0 +1,21 @@
+---
+layout: post
+title:  '[Node.js]Node.js에 대해'
+subtitle:   'Node.js에 대해'
+categories: 'study'
+tags: 'node'
+---
+
+javascript는 그동안 웹에서만 국한적으로 사용되던 언어였습니다. 하지만 발전을 거듭하면서 웹이 아닌 다른 영역에서도 javascript를 사용할 수 있게 되었습니다.
+
+이러한 Node.js라는 플랫폼이 있었기 때문에 가능하게 되었습니다. 오늘은 Node.js에 대해 알아보겠습니다.
+
+---
+
+## Node.js란
+
+Java언어가 모든 OS운영체제에서 Virtual Machine환경안에서 Runtime이 구동 되는 것 처럼, Node.js는 웹브라우저에 종속적인 자바스크립트에서 외부에서 실행 할 수 있는 Runtime환경을 Chrome V8 엔진을 제공하여 여러 OS에서 실행할 수 있는 환경을 제공하게 됩니다.
+
+이것이 바로 Node.js입니다.
+
+## Node.js의 특징 
