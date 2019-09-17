@@ -15,6 +15,9 @@ MongoDB는 C++로 작성된 문서지향(Document-Oriented)적 데이터 베이�
 
 NoSQL은 Not Only SQL이라는 뜻으로 RDBMS의 한계를 극복하기 위해 만들어진 새로운 형태의 데이터 저장소입니다.
 
+![](../assets/img/posts/2019-09-17-15-48-42.png)
+
+<RDBMS와 MongoDB와의 비교>
 ## Document
 
 Document는 RDMS의 record와 비슷한 개념입니다. 이는 한개 이상의 key-value pair로 이루어져 있습니다.
