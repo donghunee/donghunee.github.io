@@ -1,0 +1,19 @@
+---
+layout: post
+title: '[Azure_Function]Azure Function에서 file 경로 지정하기'
+subtitle: 'Azure Function에서 file 경로 지정하기'
+categories: 'study'
+tags: 'etc'
+---
+
+이번에 inception v3로 학습시킨 모델을 azure function에 올려서 api서버를 구축하려 했으나 자꾸만 오류가 떠서 확인해보니 .pb파일의 경로를 자꾸만 못찾는 것이다..
+
+여러 방법을 시도해보다가 결국 해답을 찾아 까먹기 전에 업로드 해놓는다.
+
+---
+
+```python
+import pathlib
+
+with tf.gfile.FastGFile(str(pathlib.Path(__file__).parent)+"/output_graph.pb","rb") as fp
+```
