@@ -1,0 +1,7 @@
+---
+layout: post
+title: '[SOPT]server파트 첫번째'
+subtitle: 'server파트 첫번째'
+categories: 'study'
+tags: 'etc'
+---
