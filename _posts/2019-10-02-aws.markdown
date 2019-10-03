@@ -1,0 +1,18 @@
+---
+layout: post
+title: '[AWS]호스팅 mongoDB Error'
+subtitle: '호스팅 mongoDB Error'
+categories: 'study'
+tags: 'etc'
+---
+
+aws에 호스팅을 하는데 오류가 나서 그 해결 방법을 까먹지 않기 위해 적어놓는다.
+
+local환경에서는 잘 되던것이 자꾸 mongodb connection error가 뜨길래 찾아봤더니 
+
+Atlas에서 호스팅을 하는경우 Network Access에 ip를 추가해야 하는것이다. 
+
+---
+
+결론 : ec2에서 Altas를 이용하려면 ip를 추가해 놓자. 인스턴스를 생성할 때 마다 추가해줘야 한다.
+
