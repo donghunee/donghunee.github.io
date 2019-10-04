@@ -18,3 +18,5 @@ import pathlib
 
 with tf.gfile.FastGFile(str(pathlib.Path(__file__).parent)+"/output_graph.pb","rb") as fp
 ```
+
+아직은 정보가 많이 없어서 삽질을 많이 해야할듯 하다..
