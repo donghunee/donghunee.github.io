@@ -1,0 +1,17 @@
+---
+layout: post
+title: '[Server]statement3 error'
+subtitle: 'statement3 error'
+categories: 'study'
+tags: 'etc'
+---
+
+aws 호스팅을 하던 과정에서 자꾸만 statement3 error가 뜨길래 왜 그런지 계속 삽질만 하다가 이유를 알았다...
+
+---
+
+Content-Type을 꼭 명시적으로 적는 습관을 들이자.. 물론 Postman이 어느정도는 자동으로 입력을 해주겠지만.. 명시적으로 적지않아서 계속해서 오류가 뜨는 것이였다..
+
+그리고 req.headers는 모두다 소문자로 파싱된다는 것도 삽질한 이유 중에 하나..
+
+더 꼼꼼하게 개발을 하자!!
