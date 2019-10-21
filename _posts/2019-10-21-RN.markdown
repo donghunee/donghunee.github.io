@@ -1,0 +1,91 @@
+---
+layout: post
+title: '[React]axios와 fetch 비교'
+subtitle: 'axios와 fetch 비교'
+categories: 'study'
+tags: 'react'
+---
+
+이번엔 react에서 네트워크 통신을 도와주는 api인 axios와 fetch를 비교해보겠습니다.
+
+저의 경우엔 react-native를 먼저 접했고 fetch를 자주 사용했는데 axios가 장점이 더 많은것 같아 갈아타고 있습니다.
+
+---
+
+## Axios
+
+- 사용하기 더 편하다 (fetch도 물론 편하다) 
+- fetch에서 지원하지 않는 기능들을 지원해준다.
+- Promise base
+
+## Fetch
+
+- import 하지않고 쓸 수 있다.
+- React Native의 경우 업데이트가 잦아서, 라이브러리가 업데이트를 쫒아오지 못하는 경우가 생기는데, Fetch의 경우 이런 걱정 필요 없음.
+- Promise base
+- 네트워크 에러가 발생했을 때, 기다려야 함.. > response timeout API 제공 x
+- 지원하지 않는 브라우저가 있음.
+
+## 코드 비교
+
+출처 - https://stackoverflow.com/questions/40844297/what-is-difference-between-axios-and-fetch
+
+**Fetch - POST**
+
+```javascript
+let url = 'https://someurl.com';
+let options = {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body: JSON.stringify({
+                property_one: value_one,
+                property_two: value_two
+            })
+        };
+let response = await fetch(url, options);
+let responseOK = response && response.ok;
+if (responseOK) {
+    let data = await response.json();
+    // do something with data
+}
+
+```
+
+<br>
+
+**Axios - POST**
+
+```javascript
+let url = 'https://someurl.com';
+let options = {
+            method: 'POST',
+            url: url,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            data: {
+                property_one: value_one,
+                property_two: value_two
+            }
+        };
+let response = await axios(options);
+let responseOK = response && response.status === 200 && response.statusText === 'OK';
+if (responseOK) {
+    let data = await response.data;
+    // do something with data
+}
+
+```
+
+---
+
+# 결론
+
+사용자의 입맛에 따라 고르면 될것 같다. 간단한 경우엔 fetch를 쓰고 좀더 기능이 필요할땐 axios를 쓰는것도 방법.  
+React-Native의 경우엔 업데이트가 너무 빠르기 때문에 fetch를 쓰는게 좋아보인다. 
+결론은 입맛에 따라 고르자!!
