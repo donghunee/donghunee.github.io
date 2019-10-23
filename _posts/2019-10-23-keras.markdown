@@ -1,0 +1,9 @@
+---
+layout: post
+title: '[Keras]keras 기초 필기 정리'
+subtitle: 'keras 기초 필기 정리'
+categories: 'study'
+tags: 'etc'
+---
+
+![](/assets/img/posts/note.jpg)
