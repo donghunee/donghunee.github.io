@@ -65,6 +65,9 @@ blank를 선택해 주시고
 #내 프로젝트 안에 들어가기
 cd first-projcet
 
+#기본 모듈 설치
+npm install
+
 #내 첫번째 프로젝트 실행하기
 npm start
 ```
