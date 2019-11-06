@@ -1,0 +1,38 @@
+---
+layout: post
+title: '[Question]11월 6일 들어온 질문'
+subtitle: '11월 6일 들어온 질문'
+categories: 'study'
+tags: 'etc'
+---
+
+# 1. 자바스크립트 공부할 때 교재 추천해주세요
+
+리액트 스터디를 하고 있어서 이런 질문이 많이 들어온다. 본인역시 배우고 있는 입장이기때문에 많은 것을 알려주지는 못하지만 react하면 가장 유명한 벨로퍼트님의 책과 자료를 추천해주고 있다.
+
+
+- [리액트를 다루는 기술 개정판](http://m.11st.co.kr/MW/Product/productBasicInfo.tmall?prdNo=2532147839&utm_source=%B1%B8%B1%DB_M_S_%BC%EE%C7%CE&utm_medium=%B8%F0%B9%D9%C0%CF%B0%CB%BB%F6&utm_campaign=%BC%EE%C7%CE%B1%A4%B0%ED%B8%F0%B9%D9%C0%CF%20%C3%DF%B0%A1) : 벨로퍼트님의 책, 2019년 개정판이라 최신 업데이트도 잘 설명되어있다. 다른 책들도 많은데 저 책은 프로젝트 위주로 설명되어 있어서 개인적으로 괜찮아보임.
+
+- [모던 자바스크립트](https://learnjs.vlpt.us/) : 벨로퍼트님의 자바스크립트 자료
+
+- [React](https://react.vlpt.us/) : 벨로퍼트님의 React 자료
+
+---
+
+# 2. Nginx 포트 및 https 연결 질문
+
+Nginx를 프록시 서버로 쓸때 설정해야하는 부분이 있는데, 그 질문이 들어왔다.
+
+1. 기존에 서버를 연결할때 포트를 쓰지않고선(ex. localhost:3000) 접속이 안된다고 하심.  
+-> 포트를 웹 기본포트(80)으로 바꿔서 해결
+
+2. https 연결을 추가하기를 원하심
+-> aws ec2에 nginx를 사용하고 계시길래, Certificate Manager 추천해드림. 
+
+---
+
+# 3. 프로세스 언어(?) 질문
+
+프로세스 언어라고 처음듣는 그림그리는 언어였다. 사실 아무것도 모르는 상태에서 질문을 받은거라 공부하면서 질문 받음..
+
+근데 알고보니 사소한 실수 ㅋㅋㅋ 그래서 빠르게 해결하였다!!
