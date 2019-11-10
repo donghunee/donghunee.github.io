@@ -7,7 +7,7 @@ order: 10
 
 ## 소개
 
-안녕하세요 <span style="color:blue">**`mozi`**</span> 입니다. 
+안녕하세요 <span style="color:blue">**`공대돌고래`**</span> 입니다. 
 
 다른 사람들에게 작은 도움을 주고 싶어 개발자가 되었습니다. 비전공이지만 독학으로 많은것을 배우고 실현하고 있습니다.
 
@@ -37,7 +37,7 @@ order: 10
 
 ## 사이드프로젝트
 
-- [Knock](https://github.com/sopkathon/server) - 해커톤용 문장 유사도 기반 챗봇
+<!-- - [Knock](https://github.com/sopkathon/server) - 해커톤용 문장 유사도 기반 챗봇 -->
 
 - [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 어플리케이션
 
