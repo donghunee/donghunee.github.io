@@ -48,7 +48,7 @@ db.on('error', console.error);
 db.once('open', function(){
     console.log("Connected to mongod server");
 });
-mongoose.connect('mongodb+srv://sopt:'+mongoosePW.mongoosePW+'@soptserver-3mqyc.mongodb.net/sopt?retryWrites=true&w=majority', {useUnifiedTopology: true , useNewUrlParser: true });
+mongoose.connect('mongodb+srv://sopt:'+mongoosePW.mongoosePW+'@<여러분들의 호스팅 주소>/sopt?retryWrites=true&w=majority', {useUnifiedTopology: true , useNewUrlParser: true });
 
 ```
 
