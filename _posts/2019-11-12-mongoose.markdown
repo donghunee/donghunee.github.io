@@ -77,7 +77,7 @@ mongoose.connect('mongodb+srv://sopt:'+mongoosePW.mongoosePW+'@<여러분들의 
 
 model이란 폴더를 만들고 그 안에 Post.js 파일을 만들어줍니다. 이후 다음 코드를 넣어주세요.  
 
-![ex_screenshot](/assets/img/posts/post.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/mood.png)
 
 ```javascript
 // model/post.js
@@ -220,11 +220,11 @@ postModel에 값을 넣어 준 후 저장을 해줍니다. 이때 Promise 혹은
 
 다음과 같이 코드를 작성한 후 Postman으로 request를 보내봅시다. 만약 성공했다면 200 코드와 함께 다음과 같은 response를 받을 수 있습니다.
 
-![ex_screenshot](/assets/img/posts/postman.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/postman.png)
 
 compass에도 document가 생겼군요!!
 
-![ex_screenshot](/assets/img/posts/momo.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/momo.png)
 
 ---
 
@@ -265,7 +265,7 @@ router.get('/', function(req, res, next) {
 
 요청에 성공한다면 다음과 같은 결과값을 받을 수 있습니다.
 
-![ex_screenshot](/assets/img/posts/post12.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/post12.png)
 
 <br>
 <br>
@@ -303,7 +303,7 @@ router.get('/:post_id', function(req, res, next) {
 
 요청에 성공한다면 다음과 같은 결과값을 받을 수 있습니다.
 
-![ex_screenshot](/assets/img/posts/postD.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/postD.png)
 
 ---
 
@@ -379,7 +379,7 @@ router.put('/:post_id', function(req, res, next){
 
 요청에 성공한다면 다음과 같은 결과값을 받을 수 있습니다.
 
-![ex_screenshot](/assets/img/posts/update.png)
+![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/update.png)
 
 ---
 
