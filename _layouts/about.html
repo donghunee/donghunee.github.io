@@ -14,7 +14,9 @@ layout: base
     {% include srcset-img.html class="me" img=author.picture alt=author.name %}
   {% endif %}
     <div class="author-body-description">
-      {{ author.about | markdownify }}
+      다른사람들에게 작은 도움을 주고 싶어 개발자가 되었습니다.<br>
+      비전공이지만 독학으로 많은것을 배우고 실현하고 있습니다.
+      {% comment %} {{ author.about | markdownify }} {% endcomment %}
     </div>
   </div>
   <div class="markdown-body">

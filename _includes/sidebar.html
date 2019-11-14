@@ -5,7 +5,9 @@
     <header class="sidebar-sticky" role="banner">
       <br/>
       <div class="sidebar-about">
-        <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        {% comment %} <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1> {% endcomment %}
+
+        <h1><a id="_title" href="{{ '/' | relative_url }}">공대돌고래</a></h1>
         {{ site.tagline | truncatewords:50 | markdownify }}
       </div>
 
