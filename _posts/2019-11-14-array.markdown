@@ -1,0 +1,200 @@
+---
+layout: post
+title: '[JavaScript]자바스크립트 배열관련 메소드'
+subtitle: '자바스크립트 배열관련 메소드'
+categories: 'study'
+tags: 'js'
+---
+
+이번 시간에는 javascript에서 제공하는 다양한 배열 메소드들에대해 알아보겠습니다!! 서버에서나 혹은 클라이언트에서 데이터를 처리할때 배열을 많이 쓰고있죠.  
+이러한 배열의 요소를 핸들링해주는 메소드들의 개념과 사용방법을 하나하나 차근차근 설명해보겠습니다.
+
+# .forEach
+
+``forEach``는 기본적인 Loop 메소드입니다.
+
+간단한 예제입니다.
+
+```javascript
+// for 버전
+var arr = [1, 2, 3, 5, 6, 7];
+for (var i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 == 0) {
+        console.log(arr[i]);
+    }
+}
+```
+
+```javascript
+// forEach() 버전
+var arr = [1, 2, 3, 5, 6, 7];
+arr.forEach(function (n) {
+    if (n % 2 == 0) {
+        console.log(n);
+    }
+});
+```
+
+for문과 비교해서 forEach의 장점
+
+1. 요소의 접근 방법이 ``arr[i]`` VS ``n``
+    - forEach의 콜백 함수 **첫번째 인자**로 각 요소의 값이 들어옵니다. 더욱 깔끔하게 접근 가능
+
+2. 스코프를 더럽히지 않음.
+    - for 구문은 배열의 인덱스를 저장하기 위해 임시변수 ``i``를 할당했습니다. 때문에 가독성이 떨어집니다.
+
+---
+
+# .map
+
+``map`` 메소드는 **요소를 일괄적으로 변경하는데 효과적**입니다. 예시를 보시죠
+
+```javascript
+// 문자열 배열에서 문자열 길이만 획득하기
+var arr = ['foo', 'hello', 'diamond', 'A'];
+var arr2 = arr.map(function (str) {
+    return str.length;
+});
+console.log(arr2); // [3, 5, 7, 1]
+```
+
+다음과 같이 요소들에 접근하여 사용자의 입맛에 맞게 뚝닥거린후에 새로운 배열에 할당시키는 기능을 가지고 있습니다.
+
+---
+
+# .filter
+
+``filter`` 메소드는 **요소들을 걸러내는 기능**을 가지고 있습니다. 예시를 보시죠
+
+```javascript
+// 정수 배열에서 5의 배수인 정수만 모으기
+var arr = [4, 15, 377, 395, 400, 1024, 3000];
+var arr2 = arr.filter(function (n) {
+    return n % 5 == 0;
+});
+console.log(arr2); // [15, 395, 400, 3000]
+```
+
+콜백함수의 리턴은 **bloolean**을 가잡니다. 리턴이 **true**인 요소만 모아서 새로운 배열을 생성합니다.   
+그렇기 때문에 만족하는 요소가 없는 경우 빈 배열을 생성합니다.
+
+---
+
+# .find
+
+``find`` 메소드는 ``filter``와 비슷하지만 **단 하나의 요소**만 리턴합니다. 예시를 보시죠
+
+```javascript
+// 정수 배열에서 5의 배수인 정수 '하나' 찾기
+var arr = [4, 15, 377, 395, 400, 1024, 3000];
+var arr2 = arr.find(function (n) {
+    return n % 5 == 0;
+});
+console.log(arr2); // 15
+```
+
+``find``는 콜백함수의 리턴이 **true**인 요소를 찾을때 까지 순회하다가 찾으면 거기서 끝이납니다. 만약 발견하지 못한다면 **undefined**를 반환합니다.
+
+---
+
+# .reduce
+
+``reduce`` 메소드는 위에 나온 메소드를 모두 대체할 수 있는 **아주 유연한 메소드**입니다.  
+``reduce``의 사용방법을 한번 살펴보겠습니다.
+
+> ## arr.reduce(callback, [initialValue])
+
+1. callback
+    - previousValue: 이전 마지막 콜백 호출에서 반환된 값 또는 공급된 경우 initialValue
+    - currentValue: 배열 내 현재 처리되고 있는 요소(element)
+    - currentIndex: 배열 내 현재 처리되고 있는 요소의 인덱스
+    - array: reduce에 호출되는 배열
+
+2. initialValue: 선택사항. callback의 첫 호출에 첫 번째 인수로 사용하는 값
+
+출처: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+예제를 한번 보시죠
+
+```javascript
+// 배열 요소의 합 계산하기
+var arr = [9, 2, 8, 5, 7];
+var sum = arr.reduce(function (pre, value) {
+    return pre + value;
+});
+console.log(sum); // 31
+```
+
+콜백함수는 몇번 호출될까요? 정답은 바로 4번입니다. 2,8,5,7 에 대해서 각각 호출되었습니다. 호출순서는 다음과 같습니다.
+
+|  <center>호출순서</center> |  <center>pre</center> | <center>value</center> | <center>return</center> | 
+|:--------|:--------:| :--------:|:--------:|
+| <center>1 </center> |<center>9(첫번째요소)</center>|<center>2</center>|<center>11(9 + 2) </center>|
+| <center>2 </center> |<center>11</center>|<center>8</center>|<center>19(11 + 8)</center>|
+| <center>3</center> |<center>19</center>|<center>5</center>|<center>24(19 + 5)</center>|
+| <center>4</center> |<center>24</center>|<center>7</center>|<center>31(24 + 7)</center>|
+
+``reduce``의 두 번째 인자인 initialValue를 생략했기 때문에 첫번째 콜백에서의 **pre**는 첫번째 요소인 9가 전달 되었습니다. 이후 콜백에서의 pre는 **이전 콜백의 리턴**이 됩니다.
+
+initialValue가 주어진 경우를 볼까요?
+
+```javascript
+// 배열 요소의 합 계산하기
+var arr = [9, 2, 8, 5, 7];
+var count = 0;
+var sum = arr.reduce(function (pre, value) {
+    count++;
+    return pre + value;
+}, 0); // initialValue가 주어졌다!
+console.log(sum); // 31
+console.log(count); // 5
+```
+
+같은 결과이지만 콜백함수의 호출 횟수는 5회 입니다.
+
+이제 위의 ``map``, ``filter``, ``find``에서 사용된 예제들을 ``reduce``로 해결해보겠습니다.
+
+1. **map**
+
+```javascript
+// map - 문자열 배열에서 문자열 길이만 획득하기
+// reduce로 구현
+var arr = ['foo', 'hello', 'diamond', 'A'];
+var arr2 = arr.reduce(function (pre, value) {
+    pre.push(value.length);
+    return pre;
+}, []);
+console.log(arr2); // [3, 5, 7, 1]
+```
+
+2. **filter**
+
+```javascript
+// filter - 정수 배열에서 5의 배수인 정수만 모으기
+// reduce로 구현
+var arr = [4, 15, 377, 395, 400, 1024, 3000];
+var arr2 = arr.reduce(function (pre, value) {
+    if (value % 5 == 0) {
+        pre.push(value);
+    }
+    return pre;
+}, []);
+console.log(arr2); // [15, 395, 400, 3000]
+```
+
+3. **find**
+
+```javascript
+// find - 정수 배열에서 5의 배수인 정수 '하나' 찾기
+// reduce로 구현
+var arr = [4, 15, 377, 395, 400, 1024, 3000];
+var arr2 = arr.reduce(function (pre, value) {
+    if (typeof pre == 'undefined' && value % 5 == 0) {
+        pre = value;
+    }
+    return pre;
+}, undefined);
+console.log(arr2); // 15
+```
+
+이렇게 reduce를 이용해서 많은 걸 할 수 있지만, 가장 좋은건 상황에 맞는 메소드를 적재적소에 활용하는 것이라고 생각합니다!!
