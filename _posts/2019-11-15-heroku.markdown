@@ -46,7 +46,9 @@ tags: 'etc'
 
 3. 설치가 되었는지 확인하기 위해 터미널에 ``heroku --version``을 입력해보세요. 만약 ``heroku/7.33.3 darwin-x64 node-v11.14.0`` 이런식으로 나왔다면 성공적으로 설치를 완료한 것입니다.
 
+
 4. 터미널에 ``heroku login``을 입력하여 로그인을 해줍니다.
+
 
 5. 이제 호스팅할 서버를 만들어보겠습니다. 다음 명령어들을 입력해주세요.
 
@@ -56,6 +58,7 @@ cd heroku-test // 해당 폴더로 이동
 npm install // 기본 모듈 설치
 ```
 
+
 6. .gitignore 파일을 생성후에 node_modules를 무시해줍니다.
 
 ```javascript
@@ -63,6 +66,7 @@ npm install // 기본 모듈 설치
 
 node_modules/  // node_modules 하위폴더 전부 무시
 ```
+
 
 7. Heroku에 호스팅을 해보겠습니다. 다음 명령어들을 입력해주세요!!
 
@@ -98,11 +102,13 @@ git push heroku master // 호스팅!!
 heroku ps:scale web=1
 ```
 
+
 7. 호스팅이 끝났습니다~!! (정말 쉽죠??) 이제 배포가 잘되었는지 확인하기위해서 도메인 (ex: https://appname.herokuapp.com/)을 입력하시거나 ``heroku open`` 명령어를 통해 실행을 해봅시다.
 
 ![ex_screenshot](/assets/img/posts/open.jpg)
 
 <span class="cen">짜잔!! 이렇게 뜨면 잘 따라오신겁니다.</span>
+
 
 8. 배포는 끝이 났고 이제 수정사항을 업데이트 해볼까요?? routes/index.js를 다음과 같이 수정해보겠습니다.
 
@@ -122,6 +128,7 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
+
 9. 그 후에 다음 명령어들을 입력하여 업데이트 해줍니다.
 
 ```javascript
@@ -129,6 +136,7 @@ git add . // 변경사항 add
 git commit -m "sopt 최고" // 스테이징
 git push heroku master // 업데이트 
 ```
+
 
 10. 다음과 같은 화면이 나온다면 성공!! 
 
