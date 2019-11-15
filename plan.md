@@ -27,9 +27,7 @@ description: >
     * <del>javascript 공부</del> ``완료``
     * <del>flask 공부</del> ``완료``
     * <del>socket 공부</del> ``완료``
-    * 스트리밍 서비스 공부 
-
-
+    * 스트리밍 서비스 공부
 * <del>개인 서비스 제작</del> ``완료``
 * <del>sopt 서버파트 들어가기</del> ``완료``
 * <del>미디어팀 들어가기</del> ``완료``
