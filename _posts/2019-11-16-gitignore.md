@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Git] .gitignore 적용 안되는 문제 해결하기'
-subtitle: '.gitignore 적용 안되는 문제 해결하기'
+title: '[Heroku]express서버 Heroku에 배포하기'
+subtitle: 'express서버 Heroku에 배포하기'
 categories: 'study'
 tags: 'etc'
 ---
