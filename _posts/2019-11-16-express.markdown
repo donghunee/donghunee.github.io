@@ -1,0 +1,31 @@
+---
+layout: post
+title: '[Express]미들웨어 적용방법 2개?'
+subtitle: '미들웨어 적용방법 2개?'
+categories: 'studt'
+tags: 'etc'
+---
+
+만약 authUtile.LoggedIn을 추가하고 싶다면
+
+1) 
+```javascript
+router.use('/middle', authUtils.LoggedIn)
+router.post('/middle',(req,res) => {
+    console.log(req.decoded)
+    res.json(req.decoded)
+})
+```
+
+2)
+
+```javascript
+router.post('/middle', authUtils.LoggedIn, (req,res) => {
+    console.log(req.decoded)
+    res.json(req.decoded)
+})
+```
+<br>
+
+두가지 방법이 있따?  
+사실 뭘 쓰던 상관은 업지만, 1번은 처음보고 2번만 주구장창 사용해왔기 때문에 잊기전에 포스팅 해놓는다.
