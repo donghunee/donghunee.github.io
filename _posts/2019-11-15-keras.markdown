@@ -6,4 +6,6 @@ categories: 'study'
 tags: 'etc'
 ---
 
+keras 공부 시작..!!
+
 ![ex_screenshot](/assets/img/posts/note.jpg)
