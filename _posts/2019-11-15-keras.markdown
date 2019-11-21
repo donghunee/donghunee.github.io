@@ -9,3 +9,4 @@ tags: 'etc'
 keras에 대한 기초적인 개념을 필기로 정리!!
 
 ![ex_screenshot](/assets/img/posts/note.jpg)
+
