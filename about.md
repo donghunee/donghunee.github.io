@@ -37,7 +37,7 @@ order: 10
 
 ## 사이드프로젝트
 
-<!-- - [Knock](https://github.com/sopkathon/server) - 해커톤용 문장 유사도 기반 챗봇 -->
+- [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
 
 - [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 어플리케이션
 
