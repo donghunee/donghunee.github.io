@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Heroku].gitignore 적용안될 때 해결 방법'
+title: '[Git].gitignore 적용안될 때 해결 방법'
 subtitle: '.gitignore 적용안될 때 해결 방법'
 categories: 'study'
 tags: 'etc'
