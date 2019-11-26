@@ -1,0 +1,22 @@
+---
+layout: post
+title: '[Express] CORS 에러 해결'
+subtitle: 'CORS 에러 해결'
+categories: ''
+tags: ''
+---
+
+가끔 서버 작업을 하다보면 마주하는 에러가 바로 CORS에러이다... 
+
+![ex_screenshot](/assets/img/posts/cors.jpg)
+
+이를 해결하는 방법은 많지만 그중 제일 확실한 방법을 알아보겠다.
+
+```
+npm install cors
+```
+
+```javascript
+const cors = require('cors')
+app.use(cors())
+```
