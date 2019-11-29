@@ -37,6 +37,8 @@ order: 10
 
 ## 사이드프로젝트
 
+- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤 SOLscript
+
 - [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
 
 - [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 어플리케이션
@@ -69,13 +71,13 @@ order: 10
 
 - 2019 OZ-STARTUP 최종 PT 대상
 
-- 2018 장영실 발명 경진대회 본선 진출
+- 2018 장영실 발명 경진대회 결선 진출
 
 - 2017 넥슨 아이디어 챌린지 장려상
 
 - 2017 국민생활 ICT 공모전 은상
 
-- 2017 군장병 발명 경진대회 본선진출
+- 2017 군장병 발명 경진대회 결선 진출
 
 ## 하고싶은 말
 
