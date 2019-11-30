@@ -37,7 +37,7 @@ order: 10
 
 ## 사이드프로젝트
 
-- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤 SOLscript
+- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤_SOLscript 
 
 - [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
 
