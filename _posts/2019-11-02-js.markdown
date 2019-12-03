@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[JavaScript]비구조화 할당'
-subtitle: '비구조화 할당'
+title: '[JavaScript]비구조화 할당 조심하자'
+subtitle: '비구조화 할당 조심하자'
 categories: 'study'
 tags: 'js'
 ---
 
-비구조화 할당 조심하자... 제발...1212
+비구조화 할당 조심하자... 제발...
