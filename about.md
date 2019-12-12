@@ -37,6 +37,8 @@ order: 10
 
 ## 사이드프로젝트
 
+- [SOPT_WORkING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
+
 - [SOLscript](https://github.com/SOLscript) - 신한 헤커톤_SOLscript 
 
 - [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
