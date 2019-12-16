@@ -7,4 +7,222 @@ tags: 'etc'
 ---
 
 안녕하세요 솝트 서버 여러분!! 서버파트 YB 이동훈입니다.  
-앱잼은 잘 지내셨나요>????
+앱잼 이후 네트워킹 열심히 하고 계신가요~~ ^ㅁ^ 저도 많은 아이디어와 기획들을 들으면서 고민이 많아지는것 같습니다~!!  
+정말 좋은 기획들이 많았는데요~!!! 듣다보니 ``실시간``으로 구현되는 부분이 몇몇 보이더라구요~!! 실시간 채팅이라던지? 실시간 정보 교환이라던지??  
+그래서!!! 혹시라도 실시간이라는 막연하고 어려워보이는 기술때문에 좋은 아이디어들이 묻히진 않을까... 해서!!! socket.io를 통한 실시간 통신에 대해 다뤄볼 예정입니다.  
+굳이 앱잼이 아니더라도 실시간 통신은 뭔가 재밌더라구요~!! 배워놓으면 쓸 곳이 있지 않을까요..??(잘 모름)
+
+---
+
+우선 socket.io가 왜 필요한지 알아보겠습니다.  
+
+일반적인 브라우저 렌더링 방식은 http 요청(request)와 http 응답 (response)을 주고 받는 방식입니다. http의 가장 큰 특징은 아시다시피 바로 **비연결성(Connectionless)** 입니다.
+비연결성 특징 때문에 클라이언트와 서버가 한 번 연결을 맺은 후에, 클라이언트 요청에 대해 서버가 응답을 마쳤다면 연결을 끊어버리게 되죠. 이는 클라이언트와 서버가 연결을 유지하기 위한 리소스를 줄이기위해 만들어진 특성입니다.
+
+또한 한번에 한 방향으로만 통신이 가능한 half-duplex를 취하고 있죠
+
+하지만!! 이러한 특성 때문에 실시간으로 채팅을 하거나 소셜 네트워크 알림, 주식, 날씨, 실시간 경매 정보와 같은 데이터 전송을 하기엔 한계가 있었죠...ㅠ
+
+그래서 등장한 것이 바로 **WebSocket 프로토콜** 입니다. 그리고 이를 쉽게 구현할 수 있게 만든 모듈이 바로 **Socket.io**입니다. WebSocket과 Socket.io는 아직까지는 실시간 통신을 하게 해주는 것 정도로만 이해해주시고 나중에 따로 다루도록 하겠습니다.
+
+이제 실습을 통해 어떠한 방식으로 작동하는지 알아보겠습니다!!
+
+
+---
+
+<br>
+
+우선 express로 기본적인 틀을 만들어줍니다.
+
+```
+express --ejs square 
+cd square
+npm install
+```
+
+express로 뷰 템플릿은 ejs를 쓰고 square 프로젝트를 만들어줍니다(백예린-square 너무 좋아요!!)
+
+그 후에 socket.io를 설치해 줍니다.
+
+```
+npm install socket.io
+```
+
+이제 app.js로 가서 세팅을 해줍니다.
+
+
+```js
+// app.js
+
+var app = express();
+
+// app 밑에다 넣어줍니다.
+// 요것들 
+app.io = require('socket.io')();
+
+app.io.on('connection',(socket) => {
+  console.log('유저가 들어왔다');
+
+  socket.on('disconnect', () => {
+      console.log('유저 나갔다');
+  });
+
+  socket.on('chat-msg', (msg) => {
+    app.io.emit('chat-msg', msg);
+  });
+
+});
+```
+
+위에서 부터 차례대로 설명하자면
+
+```js
+app.io = require('socket.io')();
+```
+
+socket.io를 불러온 후 app.io에 할당해줍니다.
+
+```js
+app.io.on('connection',(socket) => {
+  console.log('유저가 들어왔다');
+
+  socket.on('disconnect', () => {
+      console.log('유저가 나갔다');
+  });
+
+  socket.on('chat-msg', (msg) => {
+    app.io.emit('chat-msg', msg);
+  });
+
+});
+```
+
+socket은 기본적으로 event를 기본으로 작동합니다.
+
+다음 코드를 보면 
+
+```js
+app.io.on('connection',(socket) => {
+
+})
+```
+``connection``이라는 이벤트가 들어왔을때, 콜백 함수를 호출하는 형태이죠.
+
+**socket**은 connection이 성공했을 때 connection에 대한 정보를 담고 있는 변수입니다. 이 socket을 사용해서 서버에서는 event listener를 만들면 됩니당.
+
+이벤트 리스너는 다음과 같이 작성할 수 있습니다.
+
+```js
+socket.on('chat-msg', (msg) => { // chat-msg라는 이벤트가  msg라는 objec와 함께 들어오면 
+    app.io.emit('chat-msg', msg); // 서버에서는 emit() 메소드를 사용해서 chat-msg라는 이벤트로 동일한 내용을 전체 사용자에게 뿌려줍니다.
+  });
+```
+
+코드를 보시면 .on()이라는 메소드로 이벤트명에 따른 콜백함수를 실행하고, emit() 메소드를 통해 전체 사용자에게 이벤트명과 msg라는 메세지 객체를 뿌려주게 되는 원리입니다.
+
+정말 쉽게 구현가능하죠?? 물론 클라이언트에서의 비동기 처리라던지, 서버에서 어떤 메세지를 우선순위로 보낼건지에 대한 내용은 더 깊이 들어가야겠지만 저희는 구현을 목표로하고 있기때문에 이정도로 하겠습니다.
+
+그후에 bin 폴더에 www에 들어가 준 후 다음 코드를 적어줍니다.
+
+```js
+// bin/www
+
+// 기존 코드들
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+var server = http.createServer(app);
+
+
+app.io.attach(server); // 밑에 이렇게 추가해주세요!!
+```
+
+app.io에 attach를 통해 서버와 연결해주면 준비는 끝!!!!
+
+만약 Android나 iOS에서 socket.io를 바탕으로 뷰를 짜고 event listener를 구현했다면 바로 실시간 채팅을 할 수 있습니다~~!!!(짝짝짝짝👏👏👏)
+
+하지만 어떻게 작동하는지 저희가 직접 확인해봐야겠죠?? 그래서 웹으로 한번 만들어 보겠습니다.!! 
+
+views 폴더에 ``index.ejs`` 파일에 다음 코드 전체를 붙여넣어주세요~!!
+
+```html
+
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    form {
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form input {
+      border: 1px solid black;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 9%;
+      background: skyblue;
+      color: white;
+      border: none;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<ul id="messages"></ul>
+<form action="">
+    <input id="m" autocomplete="off"/>
+    <button>보내기</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    const name = prompt('이름을 입력해주세요');
+
+    const socket = io();
+
+    $('form').submit(() => {
+      let msg = {name: name, messege:$('#m').val()} 
+      socket.emit('chat-msg', msg);
+      $('#m').val('');
+      return false;
+    });
+
+    socket.on('chat-msg', (msg) => {
+      $('#messages').append($('<li>').text(msg.name + '  :  ' +
+        msg.messege));
+    });
+
+  });
+</script>
+</body>
+</html>
+```
+
+그후에 npm start로 서버를 켜고 localhost:3000에 접속하면 짜잔!!
+
+![ex_screenshot](/assets/img/posts/socket.png)
+
+어떠신가요?? 생각보다 쉬운편이지 않나요?? 구현하는데 어려움이 없으셨으면 좋겠습니다.!! 다들 앱잼준비 고생하시구 2탄에서 만나요~!!!
