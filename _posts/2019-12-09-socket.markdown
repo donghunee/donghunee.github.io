@@ -221,7 +221,7 @@ views 폴더에 ``index.ejs`` 파일에 다음 코드 전체를 붙여넣어주�
 </html>
 ```
 
-그후에 npm start로 서버를 켜고 localhost:3000에 접속하면 짜잔!!
+그후에 npm start로 서버를 켜고 https://localhost:3000 에 접속하면 짜잔!!
 
 ![ex_screenshot](/assets/img/posts/socket.png)
 
