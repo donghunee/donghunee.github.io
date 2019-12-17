@@ -1,0 +1,61 @@
+---
+layout: post
+title: '[Socket.io]express에서 socket.io 사용해보기 (채팅방) - 2'
+subtitle: 'express에서 socket.io 사용해보기 (채팅방) - 2'
+categories: 'study'
+tags: 'etc'
+---
+
+안녕하세요 솝트 서버 여러분!! 서버파트 YB 이동훈입니다.  
+저번에 포스팅한 ![socket.io로 전체채팅 기능 구현하기](https://donghunee.github.io/study/2019/12/09/socket/) 도움이 되셧나요?? (호호)
+
+저번 시간에는 전체 채팅에 대해 알아보았으니 이번 시간에는 그룹별 채팅기능을 구현해보는 시간을 가져보겠습니다.
+
+---
+
+차근차근 따라오시면 절대 어렵지 않게 기능 구현이 가능합니다!! 
+
+우선 app.js에 코드를 몇개 추가해보도록 하겠습니다.
+
+```js
+// app.js
+
+let room = ['room1', 'room2', 'room3'];
+let a = 0;
+
+var app = express();
+app.io = require('socket.io')();
+
+app.io.on('connection',(socket) => {
+
+  console.log("유저가 들어왔다.")
+
+  // 요거 추가
+  socket.on('leaveRoom', (num, name) => {
+    socket.leave(room[num], () => {
+      app.io.to(room[num]).emit('leaveRoom', num, name);
+    });
+  });
+
+  // 요거 추가
+  socket.on('joinRoom', (num, name) => {
+    socket.join(room[num], () => {
+      app.io.to(room[num]).emit('joinRoom', num, name);
+    });
+  });
+
+  socket.on('disconnect', () => {
+    console.log('유저가 나갔다.');
+  });
+
+  socket.on('chat-msg', (num, name, msg) => {
+    a = num;
+    app.io.to(room[a]).emit('chat-msg', name, msg); // 요거 추가
+  });
+
+});
+```
+
+``leaveRoom, joinRoom`` 이벤트 리스너를 추가해줍니다. 각각 유저가 채팅방에 들어왔을 때, 나갔을 때를 캐치하여 콜백함수를 호출하게 됩니다. 
+
+우선 leaveRoom 부터 보겠습니다.
