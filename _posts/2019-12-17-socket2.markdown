@@ -31,16 +31,16 @@ app.io.on('connection',(socket) => {
   console.log("유저가 들어왔다.")
 
   // 요거 추가
-  socket.on('leaveRoom', (num, name) => {
-    socket.leave(room[num], () => {
-      app.io.to(room[num]).emit('leaveRoom', num, name);
+  socket.on('joinRoom', (num, name) => {
+    socket.join(room[num], () => {
+      app.io.to(room[num]).emit('joinRoom', num, name);
     });
   });
 
   // 요거 추가
-  socket.on('joinRoom', (num, name) => {
-    socket.join(room[num], () => {
-      app.io.to(room[num]).emit('joinRoom', num, name);
+  socket.on('leaveRoom', (num, name) => {
+    socket.leave(room[num], () => {
+      app.io.to(room[num]).emit('leaveRoom', num, name);
     });
   });
 
@@ -50,7 +50,7 @@ app.io.on('connection',(socket) => {
 
   socket.on('chat-msg', (num, name, msg) => {
     a = num;
-    app.io.to(room[a]).emit('chat-msg', name, msg); // 요거 추가
+    app.io.to(room[a]).emit('chat-msg', name, msg); // to(room[a])를 통해 그룹에게만 메세지를 날린다.
   });
 
 });
@@ -58,4 +58,128 @@ app.io.on('connection',(socket) => {
 
 ``leaveRoom, joinRoom`` 이벤트 리스너를 추가해줍니다. 각각 유저가 채팅방에 들어왔을 때, 나갔을 때를 캐치하여 콜백함수를 호출하게 됩니다. 
 
-우선 leaveRoom 부터 보겠습니다.
+우선 **joinRoom** 부터 보겠습니다. **joinRoom** 이벤트와 함께 num, name이라는 parameter를 받고 있습니다.
+
+그리고 ``join(채팅방이름)``이라는 메서드를 통해 채팅방을 들어가게 되고, 그 채팅방 안에 있는 사람들에게 ``to(채팅방이름)``메서드를 통해 emit을 하게됩니다.  
+기존에 **app.io.emit()**이 전체에게 날리는 메세지였다면, **app.io.to(채팅방이름).emit()**은 특정 채팅방에게만 메세지를 날릴수 있게 됩니다. 이를 활용하여 그룹채팅이 가능해지는 것이죠.
+
+**leaveRoom** 역시 ``leave(채팅방이름)`` 메서드를 통해 채팅방을 나가고, ``to(채팅방이름)``메서드를 통해 나갔다는 메세지를 emit합니다.
+
+---
+
+네!! 이제 서버쪽 준비는 끝이났습니다. 이제 클라이언트를 수정하기위해 기존에 index.ejs에 있던 코드를 지워주시고 하단의 코드를 붙여주시기 바랍니다.
+
+
+
+```html
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    form {
+      display: flex;
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    form select {
+        width:120px;
+        height: 100%;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 100%;
+      margin-right: .5%;
+    }
+
+    form button {
+      width: 9%;
+      background: skyblue;
+      color:white;
+      border: none;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<ul id="messages"></ul>
+<form action="">
+    <select>
+        <option value="1번방">1번방</option>
+        <option value="2번방">2번방</option>
+        <option value="3번방">3번방</option>
+    </select>
+  <input id="m" autocomplete="off"/>
+  <button>보내기</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    const name = prompt('이름을 입력해주세요');
+
+    const socket = io();
+    let room = ['room1', 'room2','room3'];
+    let num = 0;
+
+    socket.emit('joinRoom', num, name);
+
+    $('select').change(() => {
+      socket.emit('leaveRoom', num, name);
+      num++;
+      num = num % 3;
+      socket.emit('joinRoom', num, name);
+    });
+
+    $('form').submit(() => {
+      socket.emit('chat-msg', num, name, $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+
+    socket.on('chat-msg', (name, msg) => {
+      $('#messages').append($('<li>').text(name + '  :  ' +
+        msg));
+    });
+
+    socket.on('leaveRoom', (num, name) => {
+      $('#messages').append($('<li>').text(`${name}님이 ${num+1}번 방을 퇴장하셨습니다. :[`));
+    });
+
+    socket.on('joinRoom', (num, name) => {
+      $('#messages').append($('<li>').text(`${name}님이 ${num+1}번 방에 입장하셨습니다. :]`));
+    });
+  });
+</script>
+</body>
+</html>
+```
+
+그후에 npm start로 서버를 켜고 https://localhost:3000 그렇다면 짜잔!~!!~!~~~!! 다음과 같이 그룹채팅방이 구현되었습니다!!! 
+
+![ex_screenshot](/assets/img/posts/socket22.png)
+
+다음시간에는 1:1 채팅에대해 알아보도록 하겠습니다~~!!! 다들 감기조심하세요~~@@ 
+
+
