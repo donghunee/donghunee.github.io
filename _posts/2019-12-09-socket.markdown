@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[Socket.io]express에서 socket.io 사용해보기 (전체채팅) - 1'
-subtitle: 'express에서 socket.io 사용해보기 (전체채팅) - 1'
+title: '[Socket.io]express에서 socket.io 사용해보기 - 1  (전체)'
+subtitle: 'express에서 socket.io 사용해보기 - 1 (전체)'
 categories: 'study'
 tags: 'etc'
 ---
