@@ -7,7 +7,7 @@ tags: 'etc'
 ---
 
 안녕하세요 솝트 서버 여러분!! 서버파트 YB 이동훈입니다.  
-저번에 포스팅한 [socket.io로 전체채팅 기능 구현하기](https://donghunee.github.io/study/2019/12/09/socket/) 도움이 되셧나요?? (호호)
+저번에 포스팅한 [socket.io로 전체채팅 기능 구현하기](https://donghunee.github.io/study/2019/12/09/socket/) 도움이 되셧나요??(호호)
 
 저번 시간에는 전체 채팅에 대해 알아보았으니 이번 시간에는 그룹별 채팅기능을 구현해보는 시간을 가져보겠습니다.
 
