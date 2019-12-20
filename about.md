@@ -37,6 +37,8 @@ order: 10
 
 ## 사이드프로젝트
 
+- [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
+
 - [SOPT_WORKING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
 
 - [SOLscript](https://github.com/SOLscript) - 신한 헤커톤_SOLscript 
