@@ -1,0 +1,48 @@
+---
+layout: post
+title: '[Python] Numpy Boolean indexing & slicing'
+subtitle: 'Numpy Boolean indexing & slicing'
+categories: 'study'
+tags: 'python'
+---
+
+모닥 알고리즘을 개선하다가 정리의 필요성을 느껴 포스팅한당.
+
+numpy의 장점중 하나가 배열관련 처리가 굉장히 쉽고 강격하다는 점인데, 그중 Boolean indexing & slicing에 대해 알아보겠습니다.
+
+---
+
+numpy에는 요소들이 조건을 만족시키는 지 쉽게 알 수 있는 방법이 있습니다.
+
+바로 Boolean indexing 인데요 다음 예제를 살펴봅시다.
+
+```python
+number_arr = np.array([1, 2, 3, 4, 5])
+
+# 값이 3이하인 요소만 확인하고 싶다.
+
+print(number_arr <= 3)
+
+> array([ True, True, False, False, False], dtype=bool) # 다음과 같은 결과가 뙇
+
+```
+
+<br>
+
+요소가 조건을 만족시키는지 아닌지 바로 확인 할 수 있죠?? 이를 토대로 slicing도 진행해 보겠습니다.
+
+```python
+number_arr = np.array([1, 2, 3, 4, 5])
+
+# 값이 3이하인 요소만 확인하고 싶다.
+
+print(number_arr <= 3)
+
+> array([ True, True, False, False, False], dtype=bool) # 다음과 같은 결과가 뙇
+
+print(number_arr[number_arr <= 3])
+
+> array([1, 2, 3]) # 다음과 같은 결과가 뙇
+```
+
+다음과 같이 numpy는 true인 값들만 반환하기 때문에 쉽게 slicing이 가능합니다.
