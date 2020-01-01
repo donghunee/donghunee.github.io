@@ -1,0 +1,32 @@
+---
+layout: post
+title: '[Nginx] upstream timed out 해결 방법'
+subtitle: 'upstream timed out 해결 방법'
+categories: 'study'
+tags: 'etc'
+---
+
+앱잼을 하면서 간혹가다 502에러가 뜰 때가 있었다.. 
+
+에러 메세지는 **upstream timed out (110: Connection timed out) while reading response header from upstream** 요런식으로 떴는데..
+
+확인해 보니 프록시 서버에서의 읽는 시간과 연결 시간이 너무 짧게 설정되어 있어 그런것 이였다.
+
+그래서 다음과 같이 config 파일을 수정하여 해결하였다.
+
+```
+files:
+    /etc/nginx/conf.d/proxy.conf:
+        content: |
+            client_max_body_size 10M; 
+            
+            server {
+                listen 8080;
+
+                location / {
+                    proxy_read_timeout 300s;
+                    proxy_connect_timeout 75s;
+                }
+            }
+      
+```
