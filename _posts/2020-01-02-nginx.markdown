@@ -14,6 +14,7 @@ tags: 'etc'
 
 그래서 다음과 같이 config 파일을 수정하여 해결하였다.
 
+
 ```
 files:
     /etc/nginx/conf.d/proxy.conf:
