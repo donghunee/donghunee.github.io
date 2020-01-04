@@ -39,6 +39,10 @@ order: 10
 
 - [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
 
+- [flood(Web)](http://flooddocker-env.3gfczrrijh.ap-northeast-2.elasticbeanstalk.com/web) - SOPT 25기 앱잼용 웹
+
+- [flood(Server)](https://github.com/Flood-SOPT25th/Flood-Server) - SOPT 25기 앱잼용 서버
+
 - [SOPT_WORKING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
 
 - [SOLscript](https://github.com/SOLscript) - 신한 헤커톤_SOLscript 
@@ -64,6 +68,8 @@ order: 10
 - [바톤터치](https://giging.tistory.com/5?category=323741) - 헬스장 양도관련 서비스 기획 및 제작
 
 ## 공모전 활동
+
+- 2020 SOPT 25기 앱잼 발표 대상
 
 - 2019 신한 해커톤 장려상
 

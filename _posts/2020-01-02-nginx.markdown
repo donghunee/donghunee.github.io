@@ -19,8 +19,7 @@ tags: 'etc'
 files:
     /etc/nginx/conf.d/proxy.conf:
         content: |
-            client_max_body_size 10M; 
-            
+            client_max_body_size 10M;   
             server {
                 listen 8080;
 
