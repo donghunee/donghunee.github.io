@@ -41,6 +41,8 @@ order: 10
 
 - [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
 
+- [Commit-Supporter]() - 주기적으로 커밋 알림을 날려주는 electron 데스크탑 앱
+
 - [flood(Web)](http://flooddocker-env.3gfczrrijh.ap-northeast-2.elasticbeanstalk.com/web) - SOPT 25기 앱잼용 웹
 
 - [flood(Server)](https://github.com/Flood-SOPT25th/Flood-Server) - SOPT 25기 앱잼용 서버
