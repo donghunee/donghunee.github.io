@@ -43,8 +43,6 @@ order: 10
 
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 electron 데스크탑 앱
 
-- [flood(Web)](http://flooddocker-env.3gfczrrijh.ap-northeast-2.elasticbeanstalk.com/web) - SOPT 25기 앱잼용 웹
-
 - [flood(Server)](https://github.com/Flood-SOPT25th/Flood-Server) - SOPT 25기 앱잼용 서버
 
 - [SOPT_WORKING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
