@@ -39,9 +39,9 @@ order: 10
 
 ## 사이드프로젝트
 
-- [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
+- [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션  
 
-- [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 electron 데스크탑 앱
+- [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
 
 - [flood(Server)](https://github.com/Flood-SOPT25th/Flood-Server) - SOPT 25기 앱잼용 서버
 
