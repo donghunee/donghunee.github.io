@@ -55,13 +55,13 @@ order: 10
 
 - [CuteCat](https://github.com/donghunee/cute_cat/) - 귀여운 고양이 사진 모음 어플리케이션
 
-- [미세모지](https://misemozi.me) - 실내 공기청정기 지도 서비스 제작
+<!-- - [미세모지](https://misemozi.me) - 실내 공기청정기 지도 서비스 제작 -->
 
 - [네이버 api를 이용한 지도 검색](https://github.com/donghunee/naver_map_data) - 주변 가게들의 정보를 검색 후 csv파일로 저장
 
 - [ssoT](https://play.google.com/store/apps/details?id=menu.techdown.org.taltal) - 계좌번호 인식 어플리케이션 제작
 
-- [나랑살자](https://github.com/DONGhunee/roomate) - 대학생 룸메이트 매칭 서비스 제작
+<!-- - [나랑살자](https://github.com/DONGhunee/roomate) - 대학생 룸메이트 매칭 서비스 제작 -->
 
 - [알코홀릭](https://play.google.com/store/apps/details?id=com.baton.lee.alcoholic) - 술게임 앱 제작
 
