@@ -43,7 +43,7 @@ order: 10
 
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
 
-- [flodd(Web)](https://floodweb.herokuapp.com/) - SOPT 25기 앱잼용 웹
+- [flood(Web)](https://floodweb.herokuapp.com/) - SOPT 25기 앱잼용 웹 (데스크탑 뷰)
 
 - [flood(Server)](https://github.com/Flood-SOPT25th/Flood-Server) - SOPT 25기 앱잼용 서버
 
