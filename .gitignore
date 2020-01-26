@@ -16,6 +16,9 @@ _drafts
 *.vi
 *~
 
+!*.png
+
+
 # OS or Editor folders
 .DS_Store
 ._*
