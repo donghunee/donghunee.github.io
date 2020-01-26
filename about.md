@@ -7,17 +7,17 @@ order: 10
 
 ## 소개
 
-안녕하세요 <span style="color:blue">**`공대돌고래`**</span> 입니다. 
+안녕하세요 <span style="color:blue">**`공대돌고래`**</span> 입니다.
 
 다른 사람들에게 작은 도움을 주고 싶어 개발자가 되었습니다. 비전공이지만 독학으로 많은것을 배우고 실현하고 있습니다.
 
-기타치고 노래하는 것을 좋아합니다. 길거리로 나가 버스킹을 하고 있습니다. 취미로 향수 만들기나 요리하는 것을 좋아합니다. 상대방의 이야기를 주의깊게 듣는 걸 좋아합니다. 프로그래밍도 즐겁게 하고 있습니다. 
+기타치고 노래하는 것을 좋아합니다. 길거리로 나가 버스킹을 하고 있습니다. 취미로 향수 만들기나 요리하는 것을 좋아합니다. 상대방의 이야기를 주의깊게 듣는 걸 좋아합니다. 프로그래밍도 즐겁게 하고 있습니다.
 
-2019년 5월부터 '이미지 기반 탈모 홈케어' 스타트업인 ``모닥``의 공동 창업자이며 CTO를 맡고 있습니다. 현재 정부지원사업에 선정되어 열심히 일하고 있습니다.
+2019년 5월부터 '이미지 기반 탈모 홈케어' 스타트업인 `모닥`의 공동 창업자이며 CTO를 맡고 있습니다. 현재 정부지원사업에 선정되어 열심히 일하고 있습니다.
 
 항상 작은 시도, 작은 실패와 작은 성공을 추구하며 살고 있습니다.
 
-감사합니다. 
+감사합니다.
 
 ## 약력
 
@@ -39,7 +39,7 @@ order: 10
 
 ## 사이드프로젝트
 
-- [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션  
+- [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
 
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
 
@@ -49,7 +49,7 @@ order: 10
 
 - [SOPT_WORKING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
 
-- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤_SOLscript 
+- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤\_SOLscript
 
 - [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
 
