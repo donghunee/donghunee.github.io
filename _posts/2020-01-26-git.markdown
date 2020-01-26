@@ -1,0 +1,24 @@
+---
+layout: post
+title: "[Git].gitignore 전역 속성 무시시키는 방법"
+subtitle: ".gitignore 전역 속성 무시시키는 방법"
+categories: "study"
+tags: "etc"
+---
+
+github블로그를 운영하면서 어느순간 갑자기 .png확장자로 된 파일이 자꾸 ignore되는 현상이 발생하였다.
+
+.jpg나 .jpeg같은 이미지 파일은 잘 commit이 되는데 이상하게 .png확장자 파일은 commit이 안되는 것이다..
+
+그래서 **git add -f ./이미지경로** 로 강제로 해결 해보긴했지만 여간 불편한것이 아니였다.
+
+아무래도 예측컨데 전역의 .gitignore파일에서 \*.png를 통해 무시가된 상황이였을 것이다.
+
+그러다가 이를 해결하는 방법을 찾아 공유해본다.
+
+```js
+//.gitignore
+!*.png
+```
+
+이런식으로 !를 추가하면 전역의 ignore속성을 무시할 수 있다!!(오예!)
