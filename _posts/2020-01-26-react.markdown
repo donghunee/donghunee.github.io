@@ -1,0 +1,49 @@
+---
+layout: post
+title: "[React]setState callback"
+subtitle: "setState callback"
+categories: "study"
+tags: "react"
+---
+
+[플러드 회계앱](https://donghunee.github.io/flood-money/)을 만들던 도중
+
+다음과 같은 코드에서 문제가 생겼었다.
+
+```jsx
+<Button
+  className="memo-button"
+  onClick={() => {
+    this.setState({ type: this.props.type });
+    return this.props.handleSubmit(this.state);
+  }}
+>
+```
+
+바로 **setState**를 호출후에 state를 가져왔더니 변경되지 않은 state가 자꾸 불러져오는 현상이 발생하는 것이였다..!
+
+이유를 검색해 보니 **setState**는 `비동기 함수`였던 것이다...
+
+그렇기 때문에 setState로 state가 변경되기도 전에 state를 불러와서 문제가 생겼던것..  
+이를 해결하기 위해 가장 먼저 생각난 것은 async/await이였지만... 뭔가 나이스하지 않은 방법?이라 구글링을 해보니 역시 방법이 있었디.
+
+바로 callback함수를 이용하는 방법
+
+> **setState(state변경,callback)**
+
+setState는 첫번째 인수로 변경할 state를, 그리고 두번째 인수로 callback함수를 받아 setState가 끝나면 실행시킬 수 있는 것이다.
+
+이를 적용하여 프로젝트를 개선해보았다.
+
+```jsx
+<Button
+  className="memo-button"
+  onClick={() => {
+    this.setState({ type: this.props.type },() => {
+      return this.props.handleSubmit(this.state);
+    });
+  }}
+>
+```
+
+callback함수를 통해 정상 작동하도록 개선하였다.
