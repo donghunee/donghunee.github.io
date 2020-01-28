@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[MongoDB]Mongoose 사용법'
-subtitle: 'Mongoose 사용법'
-categories: 'study'
-tags: 'etc'
+title: "[MongoDB]express에서 Mongoose 사용법"
+subtitle: "express에서 Mongoose 사용법"
+categories: "study"
+tags: "etc"
 ---
 
 이번 시간에는 MongoDB에서 CRUD(Create, Read, Update, Delete)를 하는 방법을 구현해보겠습니다!!
@@ -12,7 +12,7 @@ MySQL에서 이미 CRUD를 배웠기때문에 비교하면서 따라오시면 �
 
 저희는 **Mongoose**라는 라이브러리를 사용할 예정인데요, Mongoose는 MongoDB기반의 node.js용 ODM(Object Data Mapping) 라이브러리입니다.
 
-ODM이라는 용어를 처음 접하시는 분들도 계실텐데요, 그냥 쉽게 말해 MongoDB의 Document를 자바스크립트 객체로 바꿔주는 역할을 해주는 것이라고 생각하시면 쉽습니다!! 
+ODM이라는 용어를 처음 접하시는 분들도 계실텐데요, 그냥 쉽게 말해 MongoDB의 Document를 자바스크립트 객체로 바꿔주는 역할을 해주는 것이라고 생각하시면 쉽습니다!!
 
 이제 시작해 보겠습니다!!!
 
@@ -21,7 +21,7 @@ ODM이라는 용어를 처음 접하시는 분들도 계실텐데요, 그냥 쉽
 ```javascript
 express mood-indigo
 cd mood-indigo
-npm install 
+npm install
 ```
 
 저희는 mongoose 라이브러리를 사용하기 때문에 설치해줍니다
@@ -33,23 +33,26 @@ npm install mongoose
 이제 mongoose를 써봐야 겠죠?? bin폴더의 www로 들어간후 다음과 같이 적어줍니다.
 
 ```javascript
-var app = require('../app');
-var debug = require('debug')('modak:server');
-var http = require('http');
+var app = require("../app");
+var debug = require("debug")("modak:server");
+var http = require("http");
 
 // 여기 밑에 코드를 추가해주면 됩니다.
 
-var mongoose = require('mongoose');
-const mongoosePW = require("../config/userinfo.json") //PW는 개인정보이므로 따로 관리하도록 하겠습니다.
-
+var mongoose = require("mongoose");
+const mongoosePW = require("../config/userinfo.json"); //PW는 개인정보이므로 따로 관리하도록 하겠습니다.
 
 let db = mongoose.connection;
-db.on('error', console.error);
-db.once('open', function(){
-    console.log("Connected to mongod server");
+db.on("error", console.error);
+db.once("open", function() {
+  console.log("Connected to mongod server");
 });
-mongoose.connect('mongodb+srv://sopt:'+mongoosePW.mongoosePW+'@<여러분들의 호스팅 주소>/sopt?retryWrites=true&w=majority', {useUnifiedTopology: true , useNewUrlParser: true });
-
+mongoose.connect(
+  "mongodb+srv://sopt:" +
+    mongoosePW.mongoosePW +
+    "@<여러분들의 호스팅 주소>/sopt?retryWrites=true&w=majority",
+  { useUnifiedTopology: true, useNewUrlParser: true }
+);
 ```
 
 여러분들의 개인정보는 소중하니 config 폴더를 새로만들고 userinfo.json파일을 만든후 MongoDB 비밀번호를 적어줍시다. 비밀번호는 저번에 DB연결하기 위해 사용했던 PW와 동일합니다.
@@ -62,36 +65,39 @@ mongoose.connect('mongodb+srv://sopt:'+mongoosePW.mongoosePW+'@<여러분들의 
 // config/userinfo.json
 
 {
-    mongoosePW: "블라블라"
+  mongoosePW: "블라블라";
 }
 ```
 
 이렇게 셋팅후 npm start로 서버를 켜보시고 콘솔에 'Connected to mongod server'가 찍힌다면, Mongoose를 사용하기 위한 셋팅은 끝이 났습니다. ~~~~!!!!
 
-이제 Mongoose의 장점중 하나인 ``Schema``를 생성 해보겠습니다~ Schema란 데이터를 넣는 계획표라고 생각하시면 되는데요~ Mongoose는 Schema를 기준으로 데이터를 DB에 넣기전에 먼저 검사를 하고, 어긋나는 데이터들이 있다면 에러를 발생시킵니다.
+이제 Mongoose의 장점중 하나인 `Schema`를 생성 해보겠습니다~ Schema란 데이터를 넣는 계획표라고 생각하시면 되는데요~ Mongoose는 Schema를 기준으로 데이터를 DB에 넣기전에 먼저 검사를 하고, 어긋나는 데이터들이 있다면 에러를 발생시킵니다.
 
 사실 MongoDB의 특징중 하나가 **Schema-Less**입니다. 스키마가 없다는 뜻이죠. 잉?? 스키마가 없는게 특징인데 Mongoose에서는 스키가를 다시 만들었네요?? MongoDB는 스키마가 없기 때문에 다큐먼트에 어느것을 넣어도 에러가 생기지 않습니다. String값을 넣다가 갑자기 Integer값을 넣어도 전혀 에러가 발생하지 않죠...!?  
 언뜻보면 편리한 기능같지만 실제로는 사용자가 의도하지 않는 데이터를 넣게되는 등.. 문제가 많이 발생하게됩니다.
 
-그래서 Mongoose는 Schema라는 개념을 도입하게 된 것이죠..!! 이제 Schema를 만들어야 하는 이유를 이해하셨나요?? 그렇다면 만들어 보겠습나다!!! 
+그래서 Mongoose는 Schema라는 개념을 도입하게 된 것이죠..!! 이제 Schema를 만들어야 하는 이유를 이해하셨나요?? 그렇다면 만들어 보겠습나다!!!
 
-model이란 폴더를 만들고 그 안에 Post.js 파일을 만들어줍니다. 이후 다음 코드를 넣어주세요.  
+model이란 폴더를 만들고 그 안에 Post.js 파일을 만들어줍니다. 이후 다음 코드를 넣어주세요.
 
 ![ex_screenshot](https://modoc-image.s3.ap-northeast-2.amazonaws.com/mood.png)
 
 ```javascript
 // model/post.js
 
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-var postSchema = new Schema({
-	title : String,
-	content : String,
-	date: { type : Date, default: Date.now },
-},{ versionKey: '_somethingElse' })
+var postSchema = new Schema(
+  {
+    title: String,
+    content: String,
+    date: { type: Date, default: Date.now }
+  },
+  { versionKey: "_somethingElse" }
+);
 
-module.exports = mongoose.model('post',postSchema)
+module.exports = mongoose.model("post", postSchema);
 ```
 
 간단한 제목과 내용, 날짜의 정보를 가진 Post Schema를 작성해보았습니다.
@@ -99,38 +105,41 @@ module.exports = mongoose.model('post',postSchema)
 위에서부터 차례대로 훑어보겠습니다.
 
 ```javascript
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 ```
 
 mongoose를 사용하기 위해 require를 통해 mongoose를 가져왔고, mongoose.Schema를 통해 스키마를 활성화 시켰습니다.
 
 ```javascript
-var postSchema = new Schema({
-	title : String,
-	content : String,
-	date: { type : Date, default: Date.now },
-},{ versionKey: '_somethingElse' })
+var postSchema = new Schema(
+  {
+    title: String,
+    content: String,
+    date: { type: Date, default: Date.now }
+  },
+  { versionKey: "_somethingElse" }
+);
 ```
 
 Schema는 다음과 같이 Object 형태의 key, value형태를 가지고 있습니다. key에 해당하는 내용이 MongoDB에 들어갈 field를 명시하고, value에는 필드에 들어갈 자료형을 명시해줍니다.
 
 대표적인 타입은 다음과 같습니다.
 
-|  <center>속성</center> |  <center>설명</center> | 
-|:--------|:--------:|
-| <center>String</center> |<center>문자열</center>|
-| <center>Number</center> |<center>정수</center>|
-| <center>Date</center> |<center>날짜</center>|
-| <center>Buffer</center> |<center>바이너리 타입</center>|
-| <center>Boolean</center> |<center>참과 거짓</center>|
-| <center>Array</center> |<center>배열, [String]이라면 문자 배열</center>|
+| <center>속성</center>    |              <center>설명</center>              |
+| :----------------------- | :---------------------------------------------: |
+| <center>String</center>  |             <center>문자열</center>             |
+| <center>Number</center>  |              <center>정수</center>              |
+| <center>Date</center>    |              <center>날짜</center>              |
+| <center>Buffer</center>  |         <center>바이너리 타입</center>          |
+| <center>Boolean</center> |           <center>참과 거짓</center>            |
+| <center>Array</center>   | <center>배열, [String]이라면 문자 배열</center> |
 
 지금 생각나는건 이정도가 있습니다. 이외에도 Object 타입도 들어갈 수 있으며 ObjectId도 들어 갈 수 있습니다.
 또한 다른 Schema도 들어갈 수 있습니다. 이를 embeded한다고 하는데 이는 나중에 다루도록 하겠습니다.
 
 ```javascript
-module.exports = mongoose.model('post',postSchema)
+module.exports = mongoose.model("post", postSchema);
 ```
 
 마지막으로 해당 스키마를 다른 파일에서 쓰기위해 exports를 해주었습니다.
@@ -139,82 +148,83 @@ module.exports = mongoose.model('post',postSchema)
 
 이제 Create부터 Delete까지 기능 구현을 시작해보겠습니다.
 
-> # Create 
+> # Create
 
 router 폴더의 index.js 폴더에 들어가서 다음 코드를 넣어줍니다.
 
 ```javascript
 // router/index.js
 
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 // 요기 밑에 추가해주세요!!
-var posts = require("../model/post") // 스키마 불러오기
+var posts = require("../model/post"); // 스키마 불러오기
 
 // Create
-router.post('/', function(req, res, next) {
-    
-    const {title,content} = req.body // 비구조화 할당
+router.post("/", function(req, res, next) {
+  const { title, content } = req.body; // 비구조화 할당
 
-    console.log(req.body)
+  console.log(req.body);
 
-    var postModel = new posts()
-    postModel.title = title
-    postModel.content = content
-    postModel.save()
-        .then((newPost) => {
-            console.log("Create 완료")
-            res.status(200).json({
-                message: "Create success",
-                data:{
-                    post: newPost
-                }
-            })
-        })
-        .catch((err) => {
-            res.status(500).json({
-                message: err
-            })
-        })
+  var postModel = new posts();
+  postModel.title = title;
+  postModel.content = content;
+  postModel
+    .save()
+    .then(newPost => {
+      console.log("Create 완료");
+      res.status(200).json({
+        message: "Create success",
+        data: {
+          post: newPost
+        }
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
 });
 
 module.exports = router;
-
 ```
 
 위에서 부터 차례대로 훑어 보겠습니다!!
 
 ```javascript
-var posts = require("../model/post")
+var posts = require("../model/post");
 ```
 
 스키마를 사용하기 위해 post.js를 불러왔습니다.
 
 ```javascript
-var postModel = new posts()
-postModel.title = title
-postModel.content = content
+var postModel = new posts();
+postModel.title = title;
+postModel.content = content;
 ```
 
-새로운 document 생성을위해 ``new posts()``를 사용하고 title과 content를 넣어줍니다.
+새로운 document 생성을위해 `new posts()`를 사용하고 title과 content를 넣어줍니다.
 
 ```javascript
-postModel.save()
-    .then((newPost) => {
-        console.log("Create 완료")
-        res.status(200).json({
-            message: "Create success",
-            data:{
-                post: newPost
-            }
-        })
-    })
-    .catch((err) => {
-        res.status(500).json({
-            message: err
-        })
-    })
+postModel
+  .save()
+  .then(newPost => {
+    console.log("Create 완료");
+    res.status(200).json({
+      message: "Create success",
+      data: {
+        post: newPost
+      }
+    });
+  })
+  .catch(err => {
+    res.status(500).json({
+      message: err
+    });
+  });
 ```
+
 postModel에 값을 넣어 준 후 저장을 해줍니다. 이때 Promise 혹은 async/await을 사용해주면 훨씬 더 깔끔 한 코드를 작성할 수 있으며, 값을 핸들링하기 편해집니다.  
 (Promise 쓰세요!! 두번 쓰세요!!)
 
@@ -233,7 +243,7 @@ compass에도 document가 생겼군요!!
 
 > # Read
 
-Read는 Read All과 Read Detail로 나눠서 설명하겠습니다. 
+Read는 Read All과 Read Detail로 나눠서 설명하겠습니다.
 
 먼저 모든 게시물을 다 보여주는 Read All 입니다.
 
@@ -244,22 +254,23 @@ Create 코드 및에 다음과 같이 적어줍니다.
 ```javascript
 // router/index.js
 // Read All
-router.get('/', function(req, res, next) {
-    posts.find()
-        .then((posts) => {
-            console.log("Read All 완료")
-            res.status(200).json({
-                message: "Read All success",
-                data:{
-                    post: posts
-                }
-            })
-        })
-        .catch((err) => {
-            res.status(500).json({
-                message: err
-            })
-        })     
+router.get("/", function(req, res, next) {
+  posts
+    .find()
+    .then(posts => {
+      console.log("Read All 완료");
+      res.status(200).json({
+        message: "Read All success",
+        data: {
+          post: posts
+        }
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
 });
 ```
 
@@ -277,25 +288,26 @@ router.get('/', function(req, res, next) {
 ```javascript
 // router/index.js
 // Read All
-router.get('/:post_id', function(req, res, next) {
-    const postId = req.params.post_id
+router.get("/:post_id", function(req, res, next) {
+  const postId = req.params.post_id;
 
-    posts.findOne({_id: postId})
-        .then((post) => {
-            if (!post) return res.status(404).json({message:"post not found"})
-            console.log("Read Detail 완료");
-            res.status(200).json({
-                message: "Read Detail success",
-                data:{
-                    post: post
-                }
-            })
-        })
-        .catch((err) => {
-            res.status(500).json({
-                message: err
-            })
-        })
+  posts
+    .findOne({ _id: postId })
+    .then(post => {
+      if (!post) return res.status(404).json({ message: "post not found" });
+      console.log("Read Detail 완료");
+      res.status(200).json({
+        message: "Read Detail success",
+        data: {
+          post: post
+        }
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
 });
 ```
 
@@ -316,29 +328,29 @@ router.get('/:post_id', function(req, res, next) {
 ```javascript
 // router/index.js
 // Update
-router.put('/:post_id', async function(req, res, next){
-    const post_id = req.params.post_id
-    const {title ,content} = req.body
+router.put("/:post_id", async function(req, res, next) {
+  const post_id = req.params.post_id;
+  const { title, content } = req.body;
 
-    try{
-        var post = await posts.findById(post_id)
-        if (!post) return res.status(404).json({message:"post not found"})
-        post.title = title
-        post.content = content
-        var output = await post.save();
-        console.log("Update 완료");
-        res.status(200).json({
-            message: "Update success",
-            data:{
-                post: output
-            }
-        })
-    } catch(err) {
-        res.status(500).json({
-            message: err
-        })
-    }
-})
+  try {
+    var post = await posts.findById(post_id);
+    if (!post) return res.status(404).json({ message: "post not found" });
+    post.title = title;
+    post.content = content;
+    var output = await post.save();
+    console.log("Update 완료");
+    res.status(200).json({
+      message: "Update success",
+      data: {
+        post: output
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: err
+    });
+  }
+});
 ```
 
 게시물을 찾고(findById), 저장하는 메소드(save)를 각각 사용합니다. 때문에 가독성을 위해 async/await을 사용하였습니다.
@@ -348,33 +360,32 @@ router.put('/:post_id', async function(req, res, next){
 ```javascript
 // router/index.js
 // Update
-router.put('/:post_id', function(req, res, next){
-    const post_id = req.params.post_id
-    const {title ,content} = req.body
+router.put("/:post_id", function(req, res, next) {
+  const post_id = req.params.post_id;
+  const { title, content } = req.body;
 
-    posts.findById(post_id)
-    .then((post) => {
-        if (!post) return res.status(404).json({message:"post not found"})
-        post.title = title
-        post.content = content
-        post.save()
-            .then((output) => {
-                console.log("Update 완료");    
-                res.status(200).json({
-                    message: "Update success",
-                    data:{
-                        post: output
-                    }
-                })
-            })
+  posts
+    .findById(post_id)
+    .then(post => {
+      if (!post) return res.status(404).json({ message: "post not found" });
+      post.title = title;
+      post.content = content;
+      post.save().then(output => {
+        console.log("Update 완료");
+        res.status(200).json({
+          message: "Update success",
+          data: {
+            post: output
+          }
+        });
+      });
     })
-    .catch((err) => {
-        res.status(500).json({
-            message: err
-        })
-    })  
-})
-
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
+});
 ```
 
 요청에 성공한다면 다음과 같은 결과값을 받을 수 있습니다.
@@ -392,31 +403,34 @@ router.put('/:post_id', function(req, res, next){
 
 ```javascript
 // Delete
-router.delete('/:post_id', function(req, res, next){
-    const post_id = req.params.post_id
+router.delete("/:post_id", function(req, res, next) {
+  const post_id = req.params.post_id;
 
-    posts.deleteOne({_id : post_id})
-        .then((output) => {
-            if(output.n == 0) return res.status(404).json({message: "post not found" })
-            console.log("Delete 완료")
-            res.status(200).json({
-                message: "Delete success"
-            })
-        })
-        .catch((err)=>{
-            res.status(500).json({
-                message: err
-            })
-        }) 
-})
+  posts
+    .deleteOne({ _id: post_id })
+    .then(output => {
+      if (output.n == 0)
+        return res.status(404).json({ message: "post not found" });
+      console.log("Delete 완료");
+      res.status(200).json({
+        message: "Delete success"
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
+});
 ```
 
 **deleteOne**은 조건에 맞는 document를 한개 삭제하는 메소드이고, **deleteMany**라는 메소드도 있는데 이는 조건을 만족시키는 모든 document를 삭제하는 기능을 가지고 있습니다.
 
 ---
+
 <br>
 
-sopt 서버파트 여러분 여기까지 오느라 너무 고생많으셨습니다. 
+sopt 서버파트 여러분 여기까지 오느라 너무 고생많으셨습니다.
 
 MySQL과 비교햇을 때 어떤 것이 더 매력적이신가요?? 사실 MySQL과 MongoDB는 그 쓰임새에 맞게 사용하는게 가장 좋다고 생각합니다.
 

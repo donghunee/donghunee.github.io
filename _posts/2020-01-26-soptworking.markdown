@@ -5,5 +5,3 @@ subtitle: "SOPTWORKING 제작기"
 categories: "projects"
 tags: ""
 ---
-
-저장
