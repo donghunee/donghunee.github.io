@@ -41,6 +41,8 @@ order: 10
 
 - [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
 
+- [코로나맵](https://coronamap.site) - 코로나바이러스 현황 지도
+
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
 
 - [flood(Web)](https://floodweb.herokuapp.com/) - SOPT 25기 앱잼용 웹 (데스크탑 뷰)
