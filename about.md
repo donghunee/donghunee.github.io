@@ -45,6 +45,8 @@ order: 10
 
 - [마스크맵](https://maskmap.site) - 마스크 실시간 재고파악 지도
 
+- [YoutubeNavi](https://chrome.google.com/webstore/detail/kaendllmbeoemkbeegjplfoeaejmonpb/publish-accepted?authuser=0&hl=ko) - 유튜브 타임라인을 모아서 보여주는 크롬 익스텐션
+
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
 
 - [flood(Web)](https://floodweb.herokuapp.com/) - SOPT 25기 앱잼용 웹 (데스크탑 뷰)
