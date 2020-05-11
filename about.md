@@ -23,15 +23,17 @@ order: 10
 
 - 스타트업 모닥의 공동 창업자 및 CTO 활동중
 
-- Nexters 16기 활동중
+- SOPT 26기 기획 파트 활동중
 
 - SOPT 25기 서버 파트 수료
+
+- Nexters 16기 수료
 
 - 멋쟁이 사자처럼 7기 운영진 수료
 
 - 멋쟁이 사자처럼 6기 수료
 
-- 경희대학교 공과대학 산업경영공학과 전공
+- 경희대학교 공과대학 산업경영공학과 재학중
 
 - 영화초 / 수원북중 / 조원고 졸업
 
@@ -55,7 +57,7 @@ order: 10
 
 - [SOPT_WORKING](https://soptworking.herokuapp.com/) - IT 창업 동아리 SOPT의 네트워킹 플랫폼
 
-- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤\_SOLscript
+- [SOLscript](https://github.com/SOLscript) - 신한 헤커톤 SOLscript
 
 - [Knock](https://github.com/sopkathon/server) - sopt 해커톤 챗봇
 
