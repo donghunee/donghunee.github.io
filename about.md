@@ -47,6 +47,8 @@ order: 10
 
 - [마스크맵](https://maskmap.site) - 마스크 실시간 재고파악 지도
 
+- [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 웹소켓을 사용한 동전게임 앱
+
 - [YoutubeNavi](https://chrome.google.com/webstore/detail/kaendllmbeoemkbeegjplfoeaejmonpb/publish-accepted?authuser=0&hl=ko) - 유튜브 타임라인을 모아서 보여주는 크롬 익스텐션
 
 - [Commit-Supporter](https://github.com/donghunee/sopt-git-commit) - 주기적으로 커밋 알림을 날려주는 데스크탑 앱
