@@ -47,7 +47,9 @@ order: 10
 
 - [마스크맵](https://maskmap.site) - 마스크 실시간 재고파악 지도
 
-- [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 웹소켓을 사용한 동전게임 앱
+- [큐링](https://play.google.com/store/apps/details?id=com.qring.dolphin) - QR코드를 활용한 모임관리 앱
+
+- [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 동전게임 앱
 
 - [코로나있냥](https://github.com/COVID19-CAT/cocat-api) - IBM HACKATON 2020 앱 서버
 
@@ -82,6 +84,8 @@ order: 10
 - [바톤터치](https://giging.tistory.com/5?category=323741) - 헬스장 양도관련 서비스 기획 및 제작
 
 ## 공모전 활동
+
+- 2020 SOPT 26기 앱잼 대상
 
 - 2020 대한민국 모바일 어워드 수상
 
