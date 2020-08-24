@@ -33,7 +33,7 @@ order: 10
 
 - 한국정보화진흥원 '코로나19 대응 ICT 사례집' 제작 참여(2020)
 
-- 청와대 업무보고 참석, '코로나19와 데이터 공유의 중요성'에 대해 발표(2020)
+- 청와대 업무보고 참석,'코로나19와 데이터 공유의 중요성'에 대해 발표(2020)
 
 - 인프런 '지도서비스 제작' 강의 제작 및 진행(2020)
 
@@ -65,7 +65,7 @@ order: 10
 
 - [마스크맵](https://maskmap.site) - 마스크 실시간 재고파악 지도
 
-- [큐링](https://play.google.com/store/apps/details?id=com.qring.dolphin) - QR코드를 활용한 모임관리 앱
+- [큐링](https://apps.apple.com/kr/app/%ED%81%90%EB%A7%81-qr%EC%BD%94%EB%93%9C%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EA%B0%80%EB%8A%94-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EB%AA%A8%EC%9E%84/id1523625666) - QR코드를 활용한 모임관리 앱
 
 - [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 동전게임 앱
 
