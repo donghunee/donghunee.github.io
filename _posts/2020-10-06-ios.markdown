@@ -36,7 +36,7 @@ tags: "thing"
 
 - 완료 후에 홈화면에서 확인을 해보면 다음과 같이 앱 아이콘이 추가된 것을 확인 할 수 있습니다.
 
-![ex_screenshot](/assets/img/posts/2020_6.png){: width="200"}
+![ex_screenshot](/assets/img/posts/2020_0_6.png){: width="200"}
 
 - 아이콘 클릭 시, 다음과 같이 추가 인증이나 접속없이도 빠르게 QR 출입증을 발급 받을 수 있습니다.
 
