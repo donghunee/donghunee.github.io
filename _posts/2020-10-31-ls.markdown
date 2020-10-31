@@ -31,6 +31,6 @@ tags: "etc"
 
 ## 1. mkdir (디렉토리를 만드는 명령어)
 
-![](/assets/img/posts2020-10-31-16-16-28.png)
+![](/assets/img/posts/2020-10-31-16-16-28.png)
 
 ## 1. ls
