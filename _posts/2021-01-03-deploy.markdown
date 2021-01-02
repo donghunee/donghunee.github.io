@@ -1,0 +1,54 @@
+---
+layout: post
+title: "[Linux]리눅스 명령어 모음집"
+subtitle: "리눅스 명령어 모음집"
+categories: "study"
+tags: "react"
+---
+
+React를 배포하는 다양한 방법들이 있지만 이번엔 S3를 통해 배포하는 과정을 알아보도록 하겠습니다.
+
+우선 CRA를 통해 프로젝트를 만들어줍니다.
+
+```
+$ create-react-app react-deploy
+```
+
+그 후에 yarn build를 입력하여 빌드해줍니다.
+
+```
+$ cd react-deploy
+$ yarn build
+
+yarn run v1.17.3
+warning ../package.json: No license field
+$ react-scripts build
+Creating an optimized production build...
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
+Compiled successfully.
+
+File sizes after gzip:
+
+  41.2 KB  build/static/js/2.d9361fa1.chunk.js
+  1.4 KB   build/static/js/3.8ca54252.chunk.js
+  1.17 KB  build/static/js/runtime-main.e0cd9aa2.js
+  595 B    build/static/js/main.18a981d4.chunk.js
+  556 B    build/static/css/main.a617e044.chunk.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+✨  Done in 10.49s.
+```
+
+![](/assets/img/posts/2021-01-03-01-49-46.png)
