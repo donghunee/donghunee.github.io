@@ -51,4 +51,16 @@ Find out more about deployment here:
 ✨  Done in 10.49s.
 ```
 
+build가 완료되면 다음과 같이 build 폴더가 생성됩니다.
+
 ![](/assets/img/posts/2021-01-03-01-49-46.png)
+
+이제 배포를 위해 S3로 넘어가줍니다.
+
+---
+
+## S3 버킷 생성하기
+
+![](/assets/img/posts/2021-01-03-02-01-50.png)
+
+버킷 이름을 입력하고, 모든 퍼블릭 엑세스 차단을 풀어줍니다. 그 후 생성을 눌러 버킷을 생성합니다.
