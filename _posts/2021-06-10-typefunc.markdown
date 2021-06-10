@@ -1,0 +1,7 @@
+---
+layout: post
+title: "[TypeScript] 타입스크립트에서의 함수"
+subtitle: "타입스크립트에서의 함수"
+categories: "study"
+tags: "type"
+---
