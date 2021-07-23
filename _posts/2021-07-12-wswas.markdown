@@ -1,0 +1,20 @@
+---
+layout: post
+title: "[WEB] WS와 WAS 차이"
+subtitle: "WS와 WAS 차이"
+categories: "study"
+tags: "etc"
+---
+
+# 1. WS(Web Server)
+
+- 정적인 파일(html,css,js)을 제공하기 위한 서버, http에 의해 전송
+- 정적인 파일로만 처리 가능한 것은 WAS로 요청을 넘기지않고 바로 요청
+
+ex) nginx, apache
+
+# 2. WAS(Web Application Server)
+
+- 동적인 데이터를 제공하기 위한 서버, 웹서버에서 처리할 수 없는 동적인 정보를 처리하여 웹서버에 정적인 정보를 제공
+
+ex) tomcat

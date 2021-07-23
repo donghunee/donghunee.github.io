@@ -1,0 +1,15 @@
+---
+layout: post
+title: "[React] 좋은 React Component 설계란?"
+subtitle: "좋은 React Component 설계란?"
+categories: "study"
+tags: "react"
+---
+
+# 1. 공통적인 View, 기능을 찾는 것
+
+디자인과 기획서를 받고 이를 바탕으로 개발을 시작할 때 공통적인 기능을 하는 함수를 제작하여 View에 맞게 재사용하는 것이다.
+
+# 2. 기능을 분리시켜 재사용하기
+
+# 3. Container(기능), Presenter(ui)
