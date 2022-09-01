@@ -1,0 +1,23 @@
+---
+layout: post
+title: "[DB] Slow Query"
+subtitle: "슬로우 쿼리"
+categories: "study"
+tags: "server"
+---
+
+# 슬로우 쿼리 (Slow Qeuery)
+
+슬로우 쿼리는 DBMS가 client로부터 요청 받은 query를 수행할 때 일정시간 이상 수행되지 못한 query.  
+즉 길어야 1~2초 걸리는 DB 쿼리가 예상보다 오래걸리는 경우를 뜻함.
+
+---
+
+로그 지원 RDBMS
+Oracle - 미지원으로 보임
+
+Mysql - 지원
+
+MS-SQL - 미지원
+
+PostgreSQL - 지원
