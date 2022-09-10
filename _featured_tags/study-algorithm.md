@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: algotithm
+title: algorithm
 slug: al
 category: study
 menu: false
