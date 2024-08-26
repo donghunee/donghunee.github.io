@@ -62,6 +62,8 @@ order: 10
 
 - AI Fortune - 생성형 AI 오늘의 운세 프로그램 (제작 중 - BackEnd)
 
+- [SOPT PlayGround](https://playground.sopt.org/intro) - SOPT Playground 프로젝트 탭 기능 개발 (BackEnd)
+
 - 보통의 만남 결과 집계 서비스 - 미팅 결과 집계 서비스
 
 - [보통의 만남](https://ep08yoursummerordinarymeeting.oopy.io/) - 단체 미팅 프로그램 기획, 스태프 참여
@@ -71,8 +73,6 @@ order: 10
 - Grows-Up - 자기계발 유튜브 큐레이션 서비스
 
 - Rolling Video - 비디오로 공유하는 롤링페이퍼 (FrontEnd)
-
-- [SOPT PlayGround](https://playground.sopt.org/intro) - SOPT Playground 프로젝트 탭 기능 개발 (BackEnd)
 
 - [ChatNote](https://github.com/chatnote/ChatnoteFrontend) - Notion을 AI로 분석 요약해주는 챗봇 서비스 (FrontEnd)
 
