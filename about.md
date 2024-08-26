@@ -64,7 +64,7 @@ order: 10
 
 - 보통의 만남 결과 집계 서비스 - 미팅 결과 집계 서비스
 
-- [보통의 만남](https://www.instagram.com/ordinary.meeting/) - 단체 미팅 프로그램 기획, 스태프 참여
+- [보통의 만남](https://ep08yoursummerordinarymeeting.oopy.io/) - 단체 미팅 프로그램 기획, 스태프 참여
 
 - [오늘의 물](https://disquiet.io/product/%EC%98%A4%EB%8A%98%EC%9D%98%EB%AC%BC) - 수질 부적합 생수를 한눈에
 
