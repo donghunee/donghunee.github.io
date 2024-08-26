@@ -58,15 +58,43 @@ order: 10
 
 ## 사이드프로젝트
 
+- [Layer](https://disquiet.io/@klmhyeonwoo/makerlog/%ED%9A%8C%EA%B3%A0-%EC%9E%98%ED%95%98%EB%8A%94-%ED%8C%80%EC%97%90%EC%84%9C-%ED%9A%8C%EA%B3%A0-%EC%A7%84%ED%96%89%ED%95%98%EA%B8%B0-%EC%9E%91%EC%84%B1-%EC%A4%91) - 회고 진행 서비스 (제작 중 - FrontEnd)
+
+- AI Fortune - 생성형 AI 오늘의 운세 프로그램 (제작 중 - BackEnd)
+
+- 보통의 만남 결과 집계 서비스 - 미팅 결과 집계 서비스
+
+- [보통의 만남](https://www.instagram.com/ordinary.meeting/) - 단체 미팅 프로그램 기획, 스태프 참여
+
+- [오늘의 물](https://disquiet.io/product/%EC%98%A4%EB%8A%98%EC%9D%98%EB%AC%BC) - 수질 부적합 생수를 한눈에
+
+- Grows-Up - 자기계발 유튜브 큐레이션 서비스
+
+- Rolling Video - 비디오로 공유하는 롤링페이퍼 (FrontEnd)
+
+- [SOPT PlayGround](https://playground.sopt.org/intro) - SOPT Playground 프로젝트 탭 기능 개발 (BackEnd)
+
+- [ChatNote](https://github.com/chatnote/ChatnoteFrontend) - Notion을 AI로 분석 요약해주는 챗봇 서비스 (FrontEnd)
+
+- 너가올레? 내가갈래 - 제주 동행 모집 서비스, 구름톤 5기 (FrontEnd)
+
+- 거리두기 알리미 - 사회적 거리두기 기준을 확인할 수 있는 서비스
+
+- [코로나미](https://coroname.site) - 내 주변에 확진자 현황을 한눈에 보여주는 서비스
+
 - [모닥](https://play.google.com/store/apps/details?id=modoc.care&hl=ko) - 탈모 자가진단 어플리케이션
 
 - [코로나맵](https://coronamap.site) - 코로나바이러스 현황 지도
 
 - [마스크맵](https://maskmap.site) - 마스크 실시간 재고파악 지도
 
-- [큐링](https://apps.apple.com/kr/app/%ED%81%90%EB%A7%81-qr%EC%BD%94%EB%93%9C%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EA%B0%80%EB%8A%94-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EB%AA%A8%EC%9E%84/id1523625666) - QR코드를 활용한 모임관리 앱
+- [Mottiv](https://github.com/Motiiv/motiiv-front) - 일을 시작하는 순간, 모티브 (PM)
+
+- [큐링](https://apps.apple.com/kr/app/%ED%81%90%EB%A7%81-qr%EC%BD%94%EB%93%9C%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EA%B0%80%EB%8A%94-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EB%AA%A8%EC%9E%84/id1523625666) - QR코드를 활용한 모임관리 앱 (PM)
 
 - [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 동전게임 앱
+
+- [헬린2분](https://github.com/sopt12-hackathon/frontend_web) - 바디가 되고 싶은 당신을 위한 막간 홈트레이닝 추천 서비스
 
 - [코로나있냥](https://github.com/COVID19-CAT/cocat-api) - IBM HACKATON 2020 앱 서버
 
@@ -88,7 +116,7 @@ order: 10
 
 - [미세모지](https://misemozi.me) - 실내 공기청정기 지도 서비스 제작
 
-- [네이버 api를 이용한 지도 검색](https://github.com/donghunee/naver_map_data) - 주변 가게들의 정보를 검색 후 csv파일로 저장
+- [네이버 api를 이용한 지도 검색](https://github.com/donghunee/naver_map_data) - 주변 가게들의 정보를 검색 후 csv파일로 저장하는 크롤링 봇
 
 - [ssoT](https://play.google.com/store/apps/details?id=menu.techdown.org.taltal) - 계좌번호 인식 어플리케이션 제작
 
