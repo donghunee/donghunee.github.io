@@ -94,7 +94,7 @@ order: 10
 
 - [취중진담](https://play.google.com/store/apps/details?id=modac.coingame&hl=ko) - 동전게임 앱
 
-- [헬린2분](https://github.com/sopt12-hackathon/frontend_web) - 바디가 되고 싶은 당신을 위한 막간 홈트레이닝 추천 서비스
+- [헬린2분](https://github.com/sopt12-hackathon/frontend_web) - 핫바디가 되고 싶은 당신을 위한 막간 홈트레이닝 추천 서비스
 
 - [코로나있냥](https://github.com/COVID19-CAT/cocat-api) - IBM HACKATON 2020 앱 서버
 
